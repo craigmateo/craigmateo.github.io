@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>Draw a 3D Lewis Dot Structure for <span id="variationMol">-</span>. Be sure to include all lone pairs. Start by selecting from the electron pair geometry menu.</p>
+<h3>STEP 1 - Select geometry</h3>  
+
+<label for="geometry">Select geometry:</label>
+<select name="geometry" id="geometry" onchange=place();>
+<option value="tetrahedral-test">Tetrahedral-Test</option>
+  <option value="linear">Linear</option>
+  <option value="tri_planar">Trigonal planar</option>
+  <option value="tetrahedral">Tetrahedral</option>
+  
+  <option value="trigonalbi">Trigonal bipyramidal</option>
+  <option value="octahedral">Octahedral</option>
+</select>
+
+<h3>STEP 2 - Complete the structure</h3>  
+<p>Click the atoms and lone pairs and place them in the appropriate boxes.</p>
+
+<table id="element-table">
+<thead>
+  <tr>
+    <th><button class="atom" id="C" width="35" height="35">C</button></th>
+    <th><button class="atom" id="H" width="35" height="35">H</button></th>
+    <th><button class="atom" id="N" width="35" height="35">N</button></th>
+    <th><button class="atom" id="O" width="35" height="35">O</button></th>
+    <th><button class="atom" id="P" width="35" height="35">P</button></th>
+    <th><button class="atom" id="S" width="35" height="35">S</button></th>
+    <th><button class="atom" id="F" width="35" height="35">F</button></th>
+    <th><button class="atom" id="Cl" width="35" height="35">Cl</button></th>
+    <th><button class="atom" id="Br" width="35" height="35">Br</button></th>
+    <th><button class="atom" id="I" width="35" height="35">I</button></th>
+    <th><button class="atom" id="pair" width="35" height="35">&#183;&#183;</button></th>
+  </tr>
+</thead>
+</table>
+
+<div class="shell" id="shellDiv"> 
+
+<!--Linear-->
+<div class="step2" id="step2-linear">
+  <div class="dropBox" id="div1-linear"></div>  
+  <div class="dropBox" id="div2-linear"></div>    
+  <div class="dropBox" id="div3-linear"></div>
+  <img class="bond" id="bond-linear-1" alt="" onclick="changeImage(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png" />    
+  <img class="bond" id="bond-linear-2" alt="" onclick="changeImage(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-2.png" />
+  <canvas id="Canvas1" width="70" height="70"></canvas>
+  <canvas id="Canvas2" width="70" height="70"></canvas>
+  <canvas id="Canvas3" width="70" height="70"></canvas> 
+  <div class="spacer"></div>
+  <div id="bottom-buttons">
+    <button id="clear-btn" onclick="clearBoxesLinear()">Clear</button>
+    <button id="submit-btn" onclick="submitAnswerLinear()">Submit</button>
+    </div>
+</div>
+
+<!--Tri Planer-->
+<div class="step2" id="step2-tri_planar">
+<div class="dropBox" id="div1-trigonal"></div>  
+<div class="dropBox" id="div2-trigonal"></div>   
+<div class="dropBox" id="div3-trigonal"></div>
+<div class="dropBox" id="div5-trigonal"></div>
+<img class="bond" id="bond-1-trigonal" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond-2-trigonal" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
+<img class="bond" alt="" id="bond-5-trigonal" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png" />
+<canvas id="Canvas4" width="70" height="70"></canvas>
+<canvas id="Canvas5" width="70" height="70"></canvas>
+<canvas id="Canvas6" width="70" height="70"></canvas>
+<canvas id="Canvas7" width="70" height="70"></canvas>  
+<div class="spacer"></div>
+<div id="bottom-buttons">
+  <button id="clear-btn" onclick="clearBoxesPlanar()">Clear</button>
+  <button id="submit-btn" onclick="submitAnswerPlanar()">Submit</button>
+  </div>
+</div>
+
+<!--Tetrahedral-->
+<div class="step2" id="step2-tetrahedral">
+<div class="dropBox" id="div1-tetra"></div> 
+<div class="dropBox" id="div3-tetra"></div>
+<div class="dropBox" id="div5-tetra"></div>
+<div class="dropBox" id="div4-tetra"></div> 
+<div class="dropBox" id="div2-tetra"></div>   
+<img class="bond" id="bond-1-tetra" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond-2-tetra" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
+<img class="bond" alt="" id="bond-3-tetra" style="height:50px;" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-3.png" />   
+<img class="bond" alt="" id="bond-4-tetra" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-4.png" />
+<canvas id="Canvas8" width="70" height="70"></canvas>
+<canvas id="Canvas9" width="70" height="70"></canvas>
+<canvas id="Canvas10" width="70" height="70"></canvas>
+<canvas id="Canvas11" width="70" height="70"></canvas>
+<canvas id="Canvas12" width="70" height="70"></canvas>   
+<div class="spacer"></div>
+<div id="bottom-buttons">
+  <button id="clear-btn" onclick="clearBoxesTetra()">Clear</button>
+  <button id="submit-btn" onclick="submitAnswerTetra()">Submit</button>
+  </div>
+</div>
+
+<!--Tetrahedral-test-->
+<div class="step2" id="step2-tetrahedral-test">
+<div class="dropBox" id="div1-tetra-test"></div> 
+<div class="dropBox" id="div3-tetra-test"></div>
+<div class="dropBox" id="div5-tetra-test"></div>
+<div class="dropBox" id="div4-tetra-test"></div> 
+<div class="dropBox" id="div2-tetra-test"></div>   
+<img class="bond" id="bond1-tetra-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond2-tetra-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
+<img class="bond" alt="" id="bond3-tetra-test" style="height:50px;" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-3.png" />   
+<img class="bond" alt="" id="bond4-tetra-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-4.png" />
+
+<canvas id="Canvas26" width="70" height="70"></canvas>   
+<div class="spacer"></div>
+<div id="bottom-buttons">
+  <button id="clear-btn" onclick="clearBoxesTetraTest()">Clear</button>
+  <button id="submit-btn" onclick="submitAnswerTetra()">Submit</button>
+  </div>
+</div>
+
+
+<!--Triagonal Bi-->
+<div class="step2" id="step2-trigonalbi">
+<div class="dropBox" id="div1-trigonalbi"></div>  
+<div class="dropBox" id="div2-trigonalbi"></div>   
+<div class="dropBox" id="div6-trigonalbi"></div>  
+<div class="dropBox" id="div3-trigonalbi"></div>
+<div class="dropBox" id="div4-trigonalbi"></div>  
+<div class="dropBox" id="div5-trigonalbi"></div>
+<img class="bond" id="bond-1-trigonalbi" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond-2-trigonalbi" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-7.png" />
+<img class="bond" id="bond-3-trigonalbi" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond-4-trigonalbi" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-8.png" />
+<img class="bond" alt="" id="bond-5-trigonalbi" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-6.png" />
+<canvas id="Canvas13" width="70" height="70"></canvas>
+<canvas id="Canvas14" width="70" height="70"></canvas>
+<canvas id="Canvas15" width="70" height="70"></canvas>
+<canvas id="Canvas16" width="70" height="70"></canvas>
+<canvas id="Canvas17" width="70" height="70"></canvas>
+<canvas id="Canvas18" width="70" height="70"></canvas>  
+<div class="spacer"></div>
+<div id="bottom-buttons">
+  <button id="clear-btn" onclick="clearBoxesTrigonalbi()">Clear</button>
+  <button id="submit-btn" onclick="submitAnswerTrigonalbi()">Submit</button>
+  </div>
+</div>
+
+<!--Octahedral-->
+<div class="step2" id="step2-octahedral">
+<div class="dropBox" id="div1-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>  
+<div class="dropBox" id="div2-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>   
+<div class="dropBox" id="div6-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>  
+<div class="dropBox" id="div3-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div class="dropBox" id="div7-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div class="dropBox" id="div4-octahedral" ondrop="drop(event)"ondragover="allowDrop(event)"></div>  
+<div class="dropBox" id="div5-octahedral" ondrop="drop(event)"ondragover="allowDrop(event)"></div>
+<img class="bond" id="bond-1-octahedral" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond-2-octahedral" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-7.png" />
+<img class="bond" id="bond-3-octahedral" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond-4-octahedral" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-8.png" />
+<img class="bond" alt="" id="bond-5-octahedral" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-9.png" />
+<canvas id="Canvas19" width="70" height="70"></canvas>
+<canvas id="Canvas20" width="70" height="70"></canvas>
+<canvas id="Canvas21" width="70" height="70"></canvas>
+<canvas id="Canvas22" width="70" height="70"></canvas>
+<canvas id="Canvas23" width="70" height="70"></canvas>
+<canvas id="Canvas24" width="70" height="70"></canvas> 
+<canvas id="Canvas25" width="70" height="70"></canvas>
+<div class="spacer"></div>
+<div id="bottom-buttons">
+  <button id="clear-btn" onclick="clearBoxesOctahedral()">Clear</button>
+  <button id="submit-btn" onclick="submitAnswerOctahedral()">Submit</button>
+  </div>
+</div>
+</div>
+ 
+
+<div>
+<p id="feedback">&nbsp;</p>
+</div>
+
+<script src="main.js"></script>
+<script src="linear.js"></script>
+<script src="tri-planar.js"></script>
+<script src="tetra.js"></script>
+<script src="trigonalbi.js"></script>
+<script src="octahedral.js"></script>
+<script src="tetra-test.js"></script>
+</body>
+</html>
