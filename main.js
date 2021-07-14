@@ -19,6 +19,10 @@ for (var i = 0; i < m.length; i++) {
   }
 }
 
+function refreshPage(){
+  window.location.reload();
+} 
+
 // response object
 
 var res = {};
