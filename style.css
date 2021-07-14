@@ -397,6 +397,71 @@ table {
   width:45px;
 }
 
+
+/* Trigonal Planar Test */
+
+#div1-trigonal-test {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  margin-left: 100px;
+  margin-top: 5px;
+  position:absolute;
+  z-index: 4;
+} 
+
+#div3-trigonal-test {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  margin-left: 187px;
+  margin-top: 170px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div2-trigonal-test {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  margin-left: 12px;
+  margin-top: 170px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div5-trigonal-test {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  margin-left: 100px;
+  margin-top: 100px;
+  position:absolute;
+  z-index: 4;
+}
+
+#bond-1-trigonal-test {
+  position:absolute;
+  margin-left:110px;
+  margin-top:50px;
+  height:35px;
+}
+
+#bond-2-trigonal-test {
+  position:absolute;
+  margin-top:142px;
+  margin-left:54px;
+  width:35px;
+}
+
+#bond-5-trigonal-test {
+  position:absolute;
+  float:right;
+  margin-left:142px;
+  margin-top:142px;
+  width:35px;
+}
+
 /* Tetrahedral */
 
 #div1-tetra {
