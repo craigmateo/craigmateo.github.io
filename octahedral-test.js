@@ -3,15 +3,10 @@ var count23=0; // counts for lone pair additions
 var atom;
 var angles23 = [90,135,225,270,-45,45]; // angles for circles (to add lone pair) 
 
-// JSON variable for submitted molecule
-var SF6_ans = { a1: "", a2: "", a3: "", a4: "", a5: "", a6: "", a7: "",a1_e: 0, a2_e: 0, a3_e: 0, a4_e: 0,a5_e: 0,a6_e: 0,a7_e: 0};
-
-// JSON variable for correct molecule
-var SF6_cor = { a1: "F", a2: "F", a3: "F", a4: "F", a5: "S", a6: "F", a7: "F",a1_e: 0, a2_e: 0, a3_e: 0, a4_e: 0, a5_e: 0, a6_e: 0,a7_e: 0};
-
 // clear content in molecule
 
 function clearBoxesOctahedralTest() {
+  var res = {};
   var x = document.querySelectorAll(".dropBox");
   for (i = 0; i < x.length; i++) {
     x[i].innerHTML = ""; // clear boxes
@@ -36,7 +31,6 @@ function clearBoxesOctahedralTest() {
 
   ctx23.clearRect(0, 0, c23.width, c23.height);
 
-  SF6_ans.a3_e=SF6_ans.a2_e=SF6_ans.a1_e = 0;
   count23=alpha23=0;
   atom="";
   document.getElementById("feedback").innerHTML = "&nbsp;";
@@ -47,30 +41,26 @@ called when submit button is clicked
 */
 
 function submitAnswerOctahedralTest() { 
-  var a1 = document.getElementById("div1-octahedral").innerHTML;
-  var a2 = document.getElementById("div2-octahedral").innerHTML;
-  var a3 = document.getElementById("div3-octahedral").innerHTML;
-  var a4 = document.getElementById("div4-octahedral").innerHTML;
-  var a5 = document.getElementById("div5-octahedral").innerHTML;
-  var a6 = document.getElementById("div6-octahedral").innerHTML;
-  var a7 = document.getElementById("div7-octahedral").innerHTML;
-  SF6_ans.a1 = a1;
-  SF6_ans.a2 = a2;
-  SF6_ans.a3 = a3;
-  SF6_ans.a4 = a4;
-  SF6_ans.a5 = a5;
-  SF6_ans.a6 = a6;
-  SF6_ans.a7 = a7;
-  console.log(SF6_ans);
+  res["molecule"]=mol;
+  res["ePairs"]=count23;
+  var boxes = document.querySelectorAll(".octahedral-box");
+  for (var i = 0; i < boxes.length; i++) {
+    var b = boxes[i].innerHTML;
+    if (res[b] == null) {
+        res[b]=1;
+      }
+    else {
+      res[b]=res[b]+1;
+    }
+  }
+
   var fb = document.getElementById("feedback");
   
-  if (isEquivalentOctahedral(SF6_ans, SF6_cor)) {
+  if (isEquivalentOctahedral(n, res) && selectedCorr==selected) {
     fb.innerHTML = "Correct!";
-    document.getElementById("div1-octahedral").innerHTML;
   }
   
   else {
-    console.log("Incorrect.");
     fb.innerHTML = "Incorrect";
   }
 

@@ -13,6 +13,7 @@ var CH4_cor = { a1: "H", a2: "H", a3: "H", a4: "H", a5: "C", a1_e: 0, a2_e: 0, a
 // clear content in molecule
 
 function clearBoxesTetraTest() {
+  var res = {};
   var x = document.querySelectorAll(".dropBox");
   for (i = 0; i < x.length; i++) {
     x[i].innerHTML = ""; // clear boxes
@@ -36,7 +37,6 @@ function clearBoxesTetraTest() {
   }
 
   ctx26.clearRect(0, 0, c26.width, c26.height);
-  CH4_ans.a3_e=CH4_ans.a2_e=CH4_ans.a1_e = 0;
   count26=alpha26=0;
   atom="";
   document.getElementById("feedback").innerHTML = "&nbsp;";
@@ -47,26 +47,26 @@ called when submit button is clicked
 */
 
 function submitAnswerTetra() { 
-  var a1 = document.getElementById("div1-tetra-test").innerHTML;
-  var a2 = document.getElementById("div2-tetra-test").innerHTML;
-  var a3 = document.getElementById("div3-tetra-test").innerHTML;
-  var a4 = document.getElementById("div4-tetra-test").innerHTML;
-  var a5 = document.getElementById("div5-tetra-test").innerHTML;
-  CH4_ans.a1 = a1;
-  CH4_ans.a2 = a2;
-  CH4_ans.a3 = a3;
-  CH4_ans.a4 = a4;
-  CH4_ans.a5 = a5;
-  console.log(CH4_ans);
+  res["molecule"]=mol;
+  res["ePairs"]=count26;
+  var boxes = document.querySelectorAll(".tetra-box");
+  for (var i = 0; i < boxes.length; i++) {
+    var b = boxes[i].innerHTML;
+    if (res[b] == null) {
+        res[b]=1;
+      }
+    else {
+      res[b]=res[b]+1;
+    }
+  }
+
   var fb = document.getElementById("feedback");
   
-  if (isEquivalentTetra(CH4_ans, CH4_cor)) {
+  if (isEquivalentOctahedral(n, res) && selectedCorr==selected) {
     fb.innerHTML = "Correct!";
-    document.getElementById("div1-tetra-test").innerHTML;
   }
   
   else {
-    console.log("Incorrect.");
     fb.innerHTML = "Incorrect";
   }
 

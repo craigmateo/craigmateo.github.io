@@ -31,6 +31,10 @@ function clearBoxesLinear() {
   for (var i = 0; i < eboxes.length; i++) {
     eboxes[i].innerHTML = ""; // clear previous atom highlight
   }
+
+  document.getElementById("bond-linear-1").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png";
+  document.getElementById("bond-linear-2").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-2.png";
+
   ctx1.clearRect(0, 0, c1.width, c1.height);
   ctx2.clearRect(0, 0, c2.width, c2.height);
   ctx3.clearRect(0, 0, c3.width, c3.height);
@@ -50,9 +54,6 @@ function submitAnswerLinear() {
   var a3 = document.getElementById("div3-linear").innerHTML;
   var img1 = document.getElementById("bond-linear-1").src;
   var img2 = document.getElementById("bond-linear-2").src;
-  
-  console.log(img2.includes("bond-double"));
-  console.log(img1, img2);
   CO2_ans.a1 = a1;
   CO2_ans.a2 = a2;
   CO2_ans.a3 = a3;

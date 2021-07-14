@@ -3,15 +3,10 @@ var count7=0; // counts for lone pair additions
 var atom;
 var angles7 = [90,225,315]; // angles for circles (to add lone pair) 
 
-// JSON variable for submitted molecule
-var BH3_ans = { a1: "", a2: "", a3: "", a4: "", a1_e: 0, a2_e: 0, a3_e: 0, a4_e: 0};
-
-// JSON variable for correct molecule
-var BH3_cor = { a1: "H", a2: "H", a3: "H", a4: "Br", a1_e: 0, a2_e: 0, a3_e: 0, a4_e: 0};
-
 // clear content in molecule
 
 function clearBoxesPlanarTest() {
+  var res = {};
   var x = document.querySelectorAll(".dropBox");
   for (i = 0; i < x.length; i++) {
     x[i].innerHTML = ""; // clear boxes
@@ -35,7 +30,6 @@ function clearBoxesPlanarTest() {
   }
 
   ctx7.clearRect(0, 0, c7.width, c7.height);
-  BH3_ans.a3_e=BH3_ans.a2_e=BH3_ans.a1_e = 0;
   count7=alpha7=0;
   atom="";
   document.getElementById("feedback").innerHTML = "&nbsp;";
@@ -46,24 +40,26 @@ called when submit button is clicked
 */
 
 function submitAnswerPlanar() { 
-  var a1 = document.getElementById("div1-trigonal").innerHTML;
-  var a2 = document.getElementById("div2-trigonal").innerHTML;
-  var a3 = document.getElementById("div3-trigonal").innerHTML;
-  var a4 = document.getElementById("div5-trigonal").innerHTML;
-  BH3_ans.a1 = a1;
-  BH3_ans.a2 = a2;
-  BH3_ans.a3 = a3;
-  BH3_ans.a4 = a4;
-  console.log(BH3_ans);
+  res["molecule"]=mol;
+  res["ePairs"]=count7;
+  var boxes = document.querySelectorAll(".tri_planar-box");
+  for (var i = 0; i < boxes.length; i++) {
+    var b = boxes[i].innerHTML;
+    if (res[b] == null) {
+        res[b]=1;
+      }
+    else {
+      res[b]=res[b]+1;
+    }
+  }
+
   var fb = document.getElementById("feedback");
   
-  if (isEquivalentPlanar(BH3_ans, BH3_cor)) {
+  if (isEquivalentOctahedral(n, res) && selectedCorr==selected) {
     fb.innerHTML = "Correct!";
-    document.getElementById("div1-trigonal").innerHTML;
   }
   
   else {
-    console.log("Incorrect.");
     fb.innerHTML = "Incorrect";
   }
 
