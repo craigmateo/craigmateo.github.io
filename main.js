@@ -298,6 +298,23 @@ jQuery(".atom").click(function(){
         count7 += 1;
       }
 
+      else if (selected=="trigonalbi-test") {
+        console.log("test");
+        document.getElementById(target_box).innerHTML = "&#183;&#183;";
+        var div_id_new = div_id+"-trigonalbi-test";
+        var bondid = div_id_new.replace("div", "bond");
+        console.log(bondid);
+        document.getElementById(bondid).style.visibility ="hidden";
+        document.getElementById(div_id+"-trigonalbi-test").style.visibility ="hidden";
+
+        var numStr = div_id.replace("div","");
+        var num = parseInt(numStr);
+
+        addPoints(angles17[num-1], ctx17);
+        PF5_ans.a5_e += 1;
+        count17 += 1;
+      }
+
 
 
     }

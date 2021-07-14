@@ -316,72 +316,6 @@ table {
   border:0px dashed #000000;
 }
 
-
-/* Trigonal Planar */
-
-#div1-trigonal {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 100px;
-  margin-top: 5px;
-  position:absolute;
-  z-index: 4;
-} 
-
-#div3-trigonal {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 187px;
-  margin-top: 170px;
-  position:absolute;
-  z-index: 4;
-}
-
-#div2-trigonal {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 12px;
-  margin-top: 170px;
-  position:absolute;
-  z-index: 4;
-}
-
-#div5-trigonal {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 100px;
-  margin-top: 100px;
-  position:absolute;
-  z-index: 4;
-}
-
-#bond-1-trigonal {
-  position:absolute;
-  margin-left:110px;
-  margin-top:50px;
-  height:50px;
-}
-
-#bond-2-trigonal {
-  position:absolute;
-  margin-top:142px;
-  margin-left:54px;
-  width:45px;
-}
-
-#bond-5-trigonal {
-  position:absolute;
-  float:right;
-  margin-left:142px;
-  margin-top:142px;
-  width:45px;
-}
-
-
 /* Trigonal Planar Test */
 
 #div1-tri_planar-test {
@@ -532,27 +466,17 @@ table {
 
 /* Triagonal Bi */
 
-#div1-trigonalbi {
+#div1-trigonalbi-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
-  margin-left: 100px;
+  margin-left: 102px;
   margin-top: 8px;
   position:absolute;
   z-index: 4;
 } 
 
-#div3-trigonalbi {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 189px;
-  margin-top: 100px;
-  position:absolute;
-  z-index: 4;
-}
-
-#div2-trigonalbi {
+#div3-trigonalbi-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
@@ -562,27 +486,37 @@ table {
   z-index: 4;
 }
 
-#div4-trigonalbi {
+#div4-trigonalbi-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
-  margin-left: 100px;
+  margin-left: 102px;
   margin-top: 193px;
   position:absolute;
   z-index: 4;
 }
 
-#div5-trigonalbi {
+#div5-trigonalbi-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
-  margin-left: 100px;
+  margin-left: 189px;
   margin-top: 100px;
   position:absolute;
   z-index: 4;
 }
 
-#div6-trigonalbi {
+#div6-trigonalbi-test {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  margin-left: 102px;
+  margin-top: 99px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div2-trigonalbi-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
@@ -592,35 +526,35 @@ table {
   z-index: 4;
 }
 
-#bond-1-trigonalbi {
+#bond1-trigonalbi-test {
   position:absolute;
-  margin-left:110px;
+  margin-left:112px;
   margin-top:50px;
   height:50px;
 }
 
-#bond-2-trigonalbi {
+#bond3-trigonalbi-test {
   position:absolute;
   margin-top:120px;
   margin-left:54px;
   width:45px;
 }
 
-#bond-3-trigonalbi {
+#bond4-trigonalbi-test {
   position:absolute;
-  margin-left:110px;
+  margin-left:112px;
   margin-top:143px;
   height:50px;
 }
 
-#bond-4-trigonalbi {
+#bond2-trigonalbi-test {
   position:absolute;
   margin-left:54px;
   margin-top:87px;
   height:30px;
 }
 
-#bond-5-trigonalbi {
+#bond5-trigonalbi-test {
   position:absolute;
   float:right;
   margin-left:142px;
