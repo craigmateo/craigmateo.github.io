@@ -72,6 +72,10 @@ table {
 
 /* Linear */
 
+#linear-inst {
+  font-size: 0.8rem;
+}
+
 #bond-linear-1 {
   position:absolute;
   margin-left:75px;
@@ -564,7 +568,7 @@ table {
 
 /* Octahedral */
 
-#div1-octahedral {
+#div1-octahedral-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
@@ -574,7 +578,7 @@ table {
   z-index: 4;
 } 
 
-#div3-octahedral {
+#div6-octahedral-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
@@ -584,7 +588,7 @@ table {
   z-index: 4;
 }
 
-#div7-octahedral {
+#div5-octahedral-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
@@ -594,7 +598,7 @@ table {
   z-index: 4;
 }
 
-#div2-octahedral {
+#div3-octahedral-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
@@ -604,7 +608,7 @@ table {
   z-index: 4;
 }
 
-#div4-octahedral {
+#div4-octahedral-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
@@ -614,17 +618,17 @@ table {
   z-index: 4;
 }
 
-#div5-octahedral {
+#div7-octahedral-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
   margin-left: 100px;
-  margin-top: 100px;
+  margin-top: 98px;
   position:absolute;
   z-index: 4;
 }
 
-#div6-octahedral {
+#div2-octahedral-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
@@ -634,38 +638,46 @@ table {
   z-index: 4;
 }
 
-#bond-1-octahedral {
+#bond1-octahedral-test {
   position:absolute;
   margin-left:110px;
   margin-top:50px;
   height:50px;
 }
 
-#bond-2-octahedral {
+#bond3-octahedral-test {
   position:absolute;
   margin-top:120px;
   margin-left:54px;
   width:45px;
 }
 
-#bond-3-octahedral {
+#bond4-octahedral-test {
   position:absolute;
   margin-left:110px;
   margin-top:143px;
   height:50px;
 }
 
-#bond-4-octahedral {
+#bond2-octahedral-test {
   position:absolute;
   margin-left:54px;
   margin-top:87px;
   height:30px;
 }
 
-#bond-5-octahedral {
+#bond6-octahedral-test {
   position:absolute;
   float:right;
   margin-left:142px;
   margin-top:90px;
+  width:45px;
+}
+
+#bond5-octahedral-test {
+  position:absolute;
+  float:right;
+  margin-left:142px;
+  margin-top:120px;
   width:45px;
 }

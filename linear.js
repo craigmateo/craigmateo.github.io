@@ -48,13 +48,18 @@ function submitAnswerLinear() {
   var a1 = document.getElementById("div1-linear").innerHTML;
   var a2 = document.getElementById("div2-linear").innerHTML;
   var a3 = document.getElementById("div3-linear").innerHTML;
+  var img1 = document.getElementById("bond-linear-1").src;
+  var img2 = document.getElementById("bond-linear-2").src;
+  
+  console.log(img2.includes("bond-double"));
+  console.log(img1, img2);
   CO2_ans.a1 = a1;
   CO2_ans.a2 = a2;
   CO2_ans.a3 = a3;
   console.log(CO2_ans);
   var fb = document.getElementById("feedback");
   
-  if (isEquivalentLinear(CO2_ans, CO2_cor)) {
+  if (isEquivalentLinear(CO2_ans, CO2_cor) && img1.includes("bond-double") && img2.includes("bond-double")) {
     fb.innerHTML = "Correct!";
     document.getElementById("div1-linear").innerHTML;
   }

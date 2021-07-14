@@ -11,12 +11,11 @@
 
 <label for="geometry">Select geometry:</label>
 <select name="geometry" id="geometry" onchange=place();>
-<option value="trigonalbi-test">Trigonal bipyramidal-Test</option>
-<option value="tri_planar-test">Trigonal planar-Test</option>
-<option value="tetrahedral-test">Tetrahedral-Test</option>
-  <option value="linear">Linear</option>
-  <option value="trigonalbi">Trigonal bipyramidal</option>
-  <option value="octahedral">Octahedral</option>
+<option value="octahedral-test">Octahedral</option>
+<option value="trigonalbi-test">Trigonal bipyramidal</option>
+<option value="tri_planar-test">Trigonal planar</option>
+<option value="tetrahedral-test">Tetrahedral</option>
+<option value="linear">Linear</option>
 </select>
 
 <h3>STEP 2 - Complete the structure</h3>  
@@ -44,6 +43,7 @@
 
 <!--Linear-->
 <div class="step2" id="step2-linear">
+<p id="linear-inst">Click on the bond to switch between single and double bonds.</p>
   <div class="dropBox" id="div1-linear"></div>  
   <div class="dropBox" id="div2-linear"></div>    
   <div class="dropBox" id="div3-linear"></div>
@@ -123,30 +123,25 @@
 </div>
 
 <!--Octahedral-->
-<div class="step2" id="step2-octahedral">
-<div class="dropBox" id="div1-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>  
-<div class="dropBox" id="div2-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>   
-<div class="dropBox" id="div6-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>  
-<div class="dropBox" id="div3-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<div class="dropBox" id="div7-octahedral" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<div class="dropBox" id="div4-octahedral" ondrop="drop(event)"ondragover="allowDrop(event)"></div>  
-<div class="dropBox" id="div5-octahedral" ondrop="drop(event)"ondragover="allowDrop(event)"></div>
-<img class="bond" id="bond-1-octahedral" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
-<img class="bond" id="bond-2-octahedral" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-7.png" />
-<img class="bond" id="bond-3-octahedral" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
-<img class="bond" id="bond-4-octahedral" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-8.png" />
-<img class="bond" alt="" id="bond-5-octahedral" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-9.png" />
-<canvas id="Canvas19" width="70" height="70"></canvas>
-<canvas id="Canvas20" width="70" height="70"></canvas>
-<canvas id="Canvas21" width="70" height="70"></canvas>
-<canvas id="Canvas22" width="70" height="70"></canvas>
+<div class="step2" id="step2-octahedral-test">
+<div class="dropBox" id="div1-octahedral-test" ondrop="drop(event)" ondragover="allowDrop(event)"></div>  
+<div class="dropBox" id="div6-octahedral-test" ondrop="drop(event)" ondragover="allowDrop(event)"></div>   
+<div class="dropBox" id="div2-octahedral-test" ondrop="drop(event)" ondragover="allowDrop(event)"></div>  
+<div class="dropBox" id="div3-octahedral-test" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div class="dropBox" id="div7-octahedral-test" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div class="dropBox" id="div4-octahedral-test" ondrop="drop(event)"ondragover="allowDrop(event)"></div>  
+<div class="dropBox" id="div5-octahedral-test" ondrop="drop(event)"ondragover="allowDrop(event)"></div>
+<img class="bond" id="bond1-octahedral-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond3-octahedral-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-7.png" />
+<img class="bond" id="bond4-octahedral-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond2-octahedral-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-8.png" />
+<img class="bond" id="bond6-octahedral-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-11.png" />
+<img class="bond" id="bond5-octahedral-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-10.png" />
 <canvas id="Canvas23" width="70" height="70"></canvas>
-<canvas id="Canvas24" width="70" height="70"></canvas> 
-<canvas id="Canvas25" width="70" height="70"></canvas>
 <div class="spacer"></div>
 <div id="bottom-buttons">
-  <button id="clear-btn" onclick="clearBoxesOctahedral()">Clear</button>
-  <button id="submit-btn" onclick="submitAnswerOctahedral()">Submit</button>
+  <button id="clear-btn" onclick="clearBoxesOctahedralTest()">Clear</button>
+  <button id="submit-btn" onclick="submitAnswerOctahedralTest()">Submit</button>
   </div>
 </div>
 </div>
@@ -160,7 +155,7 @@
 <script src="linear.js"></script>
 <script src="tri-planar-test.js"></script>
 <script src="trigonalbi-test.js"></script>
-<script src="octahedral.js"></script>
+<script src="octahedral-test.js"></script>
 <script src="tetra-test.js"></script>
 </body>
 </html>
