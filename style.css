@@ -154,22 +154,6 @@ table {
   border:0px dashed #000000;
 }
 
-#Canvas5 {
-  margin-left: 0px;
-  margin-top: 158px;
-  position:absolute;
-  z-index: 3;
-  border:0px dashed black;
-}
-
-#Canvas6 {
-  margin-left: 85px;
-  margin-top: -8px;
-  position:absolute;
-  z-index: 3;
-  border:0px dashed #000000;
-}
-
 #Canvas7 {
   margin-left: 85px;
   margin-top: 87px;
@@ -400,152 +384,70 @@ table {
 
 /* Trigonal Planar Test */
 
-#div1-trigonal-test {
+#div1-tri_planar-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
   margin-left: 100px;
-  margin-top: 5px;
+  margin-top: 12px;
   position:absolute;
   z-index: 4;
 } 
 
-#div3-trigonal-test {
+#div3-tri_planar-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
-  margin-left: 187px;
-  margin-top: 170px;
+  margin-left: 180px;
+  margin-top: 168px;
   position:absolute;
   z-index: 4;
 }
 
-#div2-trigonal-test {
+#div2-tri_planar-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
-  margin-left: 12px;
-  margin-top: 170px;
+  margin-left: 16px;
+  margin-top: 168px;
   position:absolute;
   z-index: 4;
 }
 
-#div5-trigonal-test {
+#div5-tri_planar-test {
   width: 40px;
   height: 40px;
   border: 1px solid #ddd;
   margin-left: 100px;
-  margin-top: 100px;
+  margin-top: 96px;
   position:absolute;
   z-index: 4;
 }
 
-#bond-1-trigonal-test {
+#bond1-tri_planar-test {
   position:absolute;
-  margin-left:110px;
-  margin-top:50px;
+  margin-left:115px;
+  margin-top:61px;
   height:35px;
 }
 
-#bond-2-trigonal-test {
+#bond2-tri_planar-test {
   position:absolute;
-  margin-top:142px;
-  margin-left:54px;
+  margin-top:145px;
+  margin-left:62px;
   width:35px;
 }
 
-#bond-5-trigonal-test {
+#bond3-tri_planar-test {
   position:absolute;
   float:right;
-  margin-left:142px;
-  margin-top:142px;
+  margin-left:144px;
+  margin-top:145px;
   width:35px;
-}
-
-/* Tetrahedral */
-
-#div1-tetra {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 100px;
-  margin-top: 8px;
-  position:absolute;
-  z-index: 4;
-} 
-
-#div2-tetra {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 11px;
-  margin-top: 167px;
-  position:absolute;
-  z-index: 4;
-}
-
-#div3-tetra {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 167px;
-  margin-top: 192px;
-  position:absolute;
-  z-index: 4;
-}
-
-#div4-tetra {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 195px;
-  margin-top: 120px;
-  position:absolute;
-  z-index: 4;
-}
-
-#div5-tetra {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  margin-left: 100px;
-  margin-top: 100px;
-  position:absolute;
-  z-index: 4;
-}
-
-#bond-1-tetra {
-  position:absolute;
-  margin-left:110px;
-  margin-top:50px;
-  height:50px;
-}
-
-#bond-2-tetra {
-  position:absolute;
-  margin-top:142px;
-  margin-left:54px;
-  width:45px;
-}
-
-#bond-3-tetra {
-  position:absolute;
-  float:right;
-  margin-left:135px;
-  margin-top:142px;
-}
-
-#bond-4-tetra {
-  position:absolute;
-  float:right;
-  margin-left:142px;
-  margin-top:115px;
-  width:50px;
 }
 
 
 /* Tetrahedral test */
-
 
 #div1-tetra-test {
   width: 44px;

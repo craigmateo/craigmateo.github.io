@@ -35,7 +35,7 @@ function clearAll(s) {
   }
 
   if (s=="tetrahedral-test") {
-    clearBoxesTetra();
+    clearBoxesTetraTest();
   }
 
   if (s=="tetrahedral") {
@@ -280,9 +280,26 @@ jQuery(".atom").click(function(){
         addPoints(angles26[num-1], ctx26);
         CH4_ans.a5_e += 1;
         count26 += 1;
-
-
       }
+
+      else if (selected=="tri_planar-test") {
+        document.getElementById(target_box).innerHTML = "&#183;&#183;";
+        var div_id_new = div_id+"-tri_planar-test";
+        var bondid = div_id_new.replace("div", "bond");
+        console.log(bondid);
+        document.getElementById(bondid).style.visibility ="hidden";
+        document.getElementById(div_id+"-tri_planar-test").style.visibility ="hidden";
+
+        var numStr = div_id.replace("div","");
+        var num = parseInt(numStr);
+
+        addPoints(angles7[num-1], ctx7);
+        BH3_ans.a5_e += 1;
+        count7 += 1;
+      }
+
+
+
     }
 
   

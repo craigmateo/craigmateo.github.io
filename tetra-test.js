@@ -1,6 +1,5 @@
 // Global variables 
 var count26=0; // counts for lone pair additions
-
 var atom;
 var angles26 = [90,220,300,-20]; // angles for circles (to add lone pair) 
 
@@ -48,11 +47,11 @@ called when submit button is clicked
 */
 
 function submitAnswerTetra() { 
-  var a1 = document.getElementById("div1-tetra").innerHTML;
-  var a2 = document.getElementById("div2-tetra").innerHTML;
-  var a3 = document.getElementById("div3-tetra").innerHTML;
-  var a4 = document.getElementById("div4-tetra").innerHTML;
-  var a5 = document.getElementById("div5-tetra").innerHTML;
+  var a1 = document.getElementById("div1-tetra-test").innerHTML;
+  var a2 = document.getElementById("div2-tetra-test").innerHTML;
+  var a3 = document.getElementById("div3-tetra-test").innerHTML;
+  var a4 = document.getElementById("div4-tetra-test").innerHTML;
+  var a5 = document.getElementById("div5-tetra-test").innerHTML;
   CH4_ans.a1 = a1;
   CH4_ans.a2 = a2;
   CH4_ans.a3 = a3;
@@ -63,7 +62,7 @@ function submitAnswerTetra() {
   
   if (isEquivalentTetra(CH4_ans, CH4_cor)) {
     fb.innerHTML = "Correct!";
-    document.getElementById("div1-tetra").innerHTML;
+    document.getElementById("div1-tetra-test").innerHTML;
   }
   
   else {

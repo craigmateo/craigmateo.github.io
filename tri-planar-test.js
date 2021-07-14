@@ -1,13 +1,7 @@
 // Global variables 
-var count4=0; // counts for lone pair additions
-var count5=0; 
-var count6=0; 
-var count7=0; 
+var count7=0; // counts for lone pair additions
 var atom;
-var angles4 = [90,270,0,180]; // angles for circles (to add lone pair) 
-var angles5 = [90,270,180,0];
-var angles6 = [90,270,0,180];
-var angles7 = [0,180,270];
+var angles7 = [90,225,315]; // angles for circles (to add lone pair) 
 
 // JSON variable for submitted molecule
 var BH3_ans = { a1: "", a2: "", a3: "", a4: "", a1_e: 0, a2_e: 0, a3_e: 0, a4_e: 0};
@@ -17,28 +11,32 @@ var BH3_cor = { a1: "H", a2: "H", a3: "H", a4: "Br", a1_e: 0, a2_e: 0, a3_e: 0, 
 
 // clear content in molecule
 
-function clearBoxesPlanar() {
-  x = document.querySelectorAll(".dropBox");
+function clearBoxesPlanarTest() {
+  var x = document.querySelectorAll(".dropBox");
   for (i = 0; i < x.length; i++) {
     x[i].innerHTML = ""; // clear boxes
     x[i].style.backgroundColor = ""; // clear box highlights
+    x[i].style.visibility = "visible"; // clear previous box hide
     console.clear();
   }
-  icons = document.querySelectorAll(".atom");
+  var icons = document.querySelectorAll(".atom");
   for (var i = 0; i < icons.length; i++) {
     icons[i].style.backgroundColor = ""; // clear previous atom highlight
   }
   
-  eboxes = document.querySelectorAll(".e-box");
+  var eboxes = document.querySelectorAll(".e-box");
   for (var i = 0; i < eboxes.length; i++) {
     eboxes[i].innerHTML = ""; // clear previous atom highlight
   }
-  ctx4.clearRect(0, 0, c4.width, c4.height);
-  ctx5.clearRect(0, 0, c5.width, c5.height);
-  ctx6.clearRect(0, 0, c6.width, c6.height);
+
+  var bonds = document.querySelectorAll(".bond");
+  for (var i = 0; i < bonds.length; i++) {
+    bonds[i].style.visibility = "visible"; // clear previous bond hidden
+  }
+
   ctx7.clearRect(0, 0, c7.width, c7.height);
   BH3_ans.a3_e=BH3_ans.a2_e=BH3_ans.a1_e = 0;
-  count4=count5=count6=count7=alpha4=alpha5=alpha6=alpha7=0;
+  count7=alpha7=0;
   atom="";
   document.getElementById("feedback").innerHTML = "&nbsp;";
 }
@@ -81,36 +79,13 @@ var center_x = 35;
 var center_y = 34;
 var font_size = "15px";
 
-var c4 = document.getElementById("Canvas4");
-var c5 = document.getElementById("Canvas5");
-var c6 = document.getElementById("Canvas6");
 var c7 = document.getElementById("Canvas7");
-
-var ctx4 = c4.getContext("2d");
-ctx4.strokeStyle = 'rgba(0,0,0,0)';
-
-var ctx5 = c5.getContext("2d");
-ctx5.strokeStyle = 'rgba(0,0,0,0)';
-
-var ctx6 = c6.getContext("2d");
-ctx6.strokeStyle = 'rgba(0,0,0,0)';
 
 var ctx7 = c7.getContext("2d");
 ctx7.strokeStyle = 'rgba(0,0,0,0)';
 
 function drawCircle(){
-    ctx4.beginPath();
-    ctx4.arc(center_x, center_y, radius, 0, 2 * Math.PI);
-    ctx4.stroke(); 
-  
-    ctx5.beginPath();
-    ctx5.arc(center_x, center_y, radius, 0, 2 * Math.PI);
-    ctx5.stroke(); 
-  
-    ctx6.beginPath();
-    ctx6.arc(center_x, center_y, radius, 0, 2 * Math.PI);
-    ctx6.stroke(); 
-
+    
     ctx7.beginPath();
     ctx7.arc(center_x, center_y, radius, 0, 2 * Math.PI);
     ctx7.stroke(); 

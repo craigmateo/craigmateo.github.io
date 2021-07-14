@@ -11,12 +11,10 @@
 
 <label for="geometry">Select geometry:</label>
 <select name="geometry" id="geometry" onchange=place();>
+<option value="tri_planar-test">Trigonal planar-Test</option>
 <option value="tetrahedral-test">Tetrahedral-Test</option>
   <option value="linear">Linear</option>
   <option value="tri_planar">Trigonal planar</option>
-  <option value="tri_planar">Trigonal planar-Test</option>
-  <option value="tetrahedral">Tetrahedral</option>
-  
   <option value="trigonalbi">Trigonal bipyramidal</option>
   <option value="octahedral">Octahedral</option>
 </select>
@@ -61,68 +59,20 @@
     </div>
 </div>
 
-<!--Tri Planer-->
-<div class="step2" id="step2-tri_planar">
-<div class="dropBox" id="div1-trigonal"></div>  
-<div class="dropBox" id="div2-trigonal"></div>   
-<div class="dropBox" id="div3-trigonal"></div>
-<div class="dropBox" id="div5-trigonal"></div>
-<img class="bond" id="bond-1-trigonal" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
-<img class="bond" id="bond-2-trigonal" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
-<img class="bond" alt="" id="bond-5-trigonal" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png" />
-<canvas id="Canvas4" width="70" height="70"></canvas>
-<canvas id="Canvas5" width="70" height="70"></canvas>
-<canvas id="Canvas6" width="70" height="70"></canvas>
-<canvas id="Canvas7" width="70" height="70"></canvas>  
-<div class="spacer"></div>
-<div id="bottom-buttons">
-  <button id="clear-btn" onclick="clearBoxesPlanar()">Clear</button>
-  <button id="submit-btn" onclick="submitAnswerPlanar()">Submit</button>
-  </div>
-</div>
-
-
-
 <!--Tri Planer Test-->
 <div class="step2" id="step2-tri_planar-test">
-<div class="dropBox" id="div1-trigonal-test"></div>  
-<div class="dropBox" id="div2-trigonal-test"></div>   
-<div class="dropBox" id="div3-trigonal-test"></div>
-<div class="dropBox" id="div5-trigonal-test"></div>
-<img class="bond" id="bond-1-trigonal-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
-<img class="bond" id="bond-2-trigonal-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
-<img class="bond" alt="" id="bond-5-trigonal-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png" />
-<canvas id="Canvas4" width="70" height="70"></canvas>
-<canvas id="Canvas5" width="70" height="70"></canvas>
-<canvas id="Canvas6" width="70" height="70"></canvas>
+<div class="dropBox" id="div1-tri_planar-test"></div>  
+<div class="dropBox" id="div2-tri_planar-test"></div>   
+<div class="dropBox" id="div3-tri_planar-test"></div>
+<div class="dropBox" id="div5-tri_planar-test"></div>
+<img class="bond" id="bond1-tri_planar-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond2-tri_planar-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
+<img class="bond" alt="" id="bond3-tri_planar-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png" />
 <canvas id="Canvas7" width="70" height="70"></canvas>  
 <div class="spacer"></div>
 <div id="bottom-buttons">
   <button id="clear-btn" onclick="clearBoxesPlanarTest()">Clear</button>
   <button id="submit-btn" onclick="submitAnswerPlanar()">Submit</button>
-  </div>
-</div>
-
-<!--Tetrahedral-->
-<div class="step2" id="step2-tetrahedral">
-<div class="dropBox" id="div1-tetra"></div> 
-<div class="dropBox" id="div3-tetra"></div>
-<div class="dropBox" id="div5-tetra"></div>
-<div class="dropBox" id="div4-tetra"></div> 
-<div class="dropBox" id="div2-tetra"></div>   
-<img class="bond" id="bond-1-tetra" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
-<img class="bond" id="bond-2-tetra" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
-<img class="bond" alt="" id="bond-3-tetra" style="height:50px;" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-3.png" />   
-<img class="bond" alt="" id="bond-4-tetra" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-4.png" />
-<canvas id="Canvas8" width="70" height="70"></canvas>
-<canvas id="Canvas9" width="70" height="70"></canvas>
-<canvas id="Canvas10" width="70" height="70"></canvas>
-<canvas id="Canvas11" width="70" height="70"></canvas>
-<canvas id="Canvas12" width="70" height="70"></canvas>   
-<div class="spacer"></div>
-<div id="bottom-buttons">
-  <button id="clear-btn" onclick="clearBoxesTetra()">Clear</button>
-  <button id="submit-btn" onclick="submitAnswerTetra()">Submit</button>
   </div>
 </div>
 
@@ -137,7 +87,6 @@
 <img class="bond" id="bond2-tetra-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
 <img class="bond" alt="" id="bond3-tetra-test" style="height:50px;" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-3.png" />   
 <img class="bond" alt="" id="bond4-tetra-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-4.png" />
-
 <canvas id="Canvas26" width="70" height="70"></canvas>   
 <div class="spacer"></div>
 <div id="bottom-buttons">
@@ -209,8 +158,7 @@
 
 <script src="main.js"></script>
 <script src="linear.js"></script>
-<script src="tri-planar.js"></script>
-<script src="tetra.js"></script>
+<script src="tri-planar-test.js"></script>
 <script src="trigonalbi.js"></script>
 <script src="octahedral.js"></script>
 <script src="tetra-test.js"></script>
