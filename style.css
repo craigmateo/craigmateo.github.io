@@ -8,6 +8,10 @@ p, body, td {
 h1 {
   color: #7c795d;
   font-family: 'Trocchi', serif;
+  margin:auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
 
 }
 
@@ -88,7 +92,7 @@ table {
   text-decoration: none;
   display: inline-block;
   font-size: 18px;
-  margin-bottom: 1em;
+  margin-bottom: 5em;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -661,4 +665,40 @@ table {
 
 .select-css:disabled:hover, .select-css[aria-disabled=true] {
   border-color: #aaa;
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #E8E8E8;
+  color: white;
+  text-align: center;
+}
+
+
+/* Style the header */
+.header {
+  padding: 10px 16px;
+  background: #E8E8E8;
+  color: #f1f1f1;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
 }
