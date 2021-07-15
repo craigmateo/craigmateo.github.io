@@ -29,6 +29,10 @@ function clearBoxesTrigonalbiTest() {
     bonds[i].style.visibility = "visible"; // clear previous bond hidden
   }
 
+  document.getElementById("bond1-trigonalbi-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+  document.getElementById("bond4-trigonalbi-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+
+
   ctx17.clearRect(0, 0, c17.width, c17.height);
   count17=alpha17=0;
   atom="";
@@ -135,4 +139,16 @@ function isEquivalentTrigonalbi(a, b) {
     // are considered equivalent
     return true;
     
+}
+
+function changeImageTriBi(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-2.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-2.png"];
+  var i = srcs.indexOf(s);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
 }

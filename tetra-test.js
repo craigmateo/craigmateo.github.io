@@ -36,6 +36,10 @@ function clearBoxesTetraTest() {
     bonds[i].style.visibility = "visible"; // clear previous bond hidden
   }
 
+  document.getElementById("bond1-tetra-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+  document.getElementById("bond2-tetra-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png";
+
+
   ctx26.clearRect(0, 0, c26.width, c26.height);
   count26=alpha26=0;
   atom="";
@@ -141,5 +145,28 @@ function isEquivalentTetra(a, b) {
     // If we made it this far, objects
     // are considered equivalent
     return true;
-    
+}
+
+function changeImageTetra1(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-2.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-2.png"];
+  var i = srcs.indexOf(s);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
+}
+
+function changeImageTetra2(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-3.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-3.png"];
+  var i = srcs.indexOf(s);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
 }

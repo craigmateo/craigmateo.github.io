@@ -29,6 +29,11 @@ function clearBoxesPlanarTest() {
     bonds[i].style.visibility = "visible"; // clear previous bond hidden
   }
 
+  document.getElementById("bond1-tri_planar-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+  document.getElementById("bond2-tri_planar-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png";
+  document.getElementById("bond3-tri_planar-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png";
+
+
   ctx7.clearRect(0, 0, c7.width, c7.height);
   count7=alpha7=0;
   atom="";
@@ -137,4 +142,40 @@ function isEquivalentPlanar(a, b) {
     // are considered equivalent
     return true;
     
+}
+
+function changeImageTriPl1(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-2.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-2.png"];
+  var i = srcs.indexOf(s);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
+}
+
+function changeImageTriPl2(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-3.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-3.png"];
+  var i = srcs.indexOf(s);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
+}
+
+function changeImageTriPl3(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-4.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-4.png"];
+  var i = srcs.indexOf(s);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
 }

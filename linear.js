@@ -33,7 +33,7 @@ function clearBoxesLinear() {
   }
 
   document.getElementById("bond-linear-1").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png";
-  document.getElementById("bond-linear-2").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-2.png";
+  document.getElementById("bond-linear-2").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png";
 
   ctx1.clearRect(0, 0, c1.width, c1.height);
   ctx2.clearRect(0, 0, c2.width, c2.height);
@@ -60,7 +60,7 @@ function submitAnswerLinear() {
   console.log(CO2_ans);
   var fb = document.getElementById("feedback");
   
-  if (isEquivalentLinear(CO2_ans, CO2_cor) && img1.includes("bond-double") && img2.includes("bond-double")) {
+  if (isEquivalentLinear(CO2_ans, CO2_cor) && img1.includes("double") && img2.includes("double")) {
     fb.innerHTML = "Correct!";
     document.getElementById("div1-linear").innerHTML;
   }
@@ -162,8 +162,13 @@ function isEquivalentLinear(a, b) {
 }
 
 function changeImage(element) {
-  var right = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png";
-  var left = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-double.png";
-  element.src = element.bln ? right : left;
-  element.bln = !element.bln;
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-1.png"];
+  var i = srcs.indexOf(s);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
 }

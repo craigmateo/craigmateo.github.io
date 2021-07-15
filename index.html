@@ -5,12 +5,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-
-<p>Draw a 3D Lewis Dot Structure for <span id="variationMol">-</span>. Be sure to include all lone pairs. Start by selecting from the electron pair geometry menu.</p>
-<h3>STEP 1 - Select geometry</h3>  
+<div class="content">
+<h1>Molecular Geometry</h1>
+<p>Draw the structure for <span id="variationMol">-</span>. Start by selecting from the electron pair geometry menu.</p>
+<h3>Step 1 - Select geometry</h3>  
 
 <label for="geometry">Select geometry:</label>
-<select name="geometry" id="geometry" onchange=place();>
+<select class="select-css" name="geometry" id="geometry" onchange=place();>
 <option value="octahedral-test">Octahedral</option>
 <option value="trigonalbi-test">Trigonal bipyramidal</option>
 <option value="tri_planar-test">Trigonal planar</option>
@@ -18,8 +19,8 @@
 <option value="linear">Linear</option>
 </select>
 
-<h3>STEP 2 - Complete the structure</h3>  
-<p>Click the atoms and lone pairs and place them in the appropriate boxes.</p>
+<h3>Step 2 - Complete the structure</h3>  
+<p>Select an atom or electron pair from the menu and click a location to place that atom or electron pair. Start by placing the central atom and then place the terminal atoms and electron pairs in the correct locations. Only consider electron pairs on the central atom; do not worry about electron pairs on the terminal atoms. To make any bond double or triple, click on the bond to add another.</p>
 
 <table id="element-table">
 <thead>
@@ -44,17 +45,16 @@
 
 <!--Linear-->
 <div class="step2" id="step2-linear">
-<p id="linear-inst">Click on the bond to switch between single and double bonds.</p>
   <div class="dropBox" id="div1-linear"></div>  
   <div class="dropBox" id="div2-linear"></div>    
   <div class="dropBox" id="div3-linear"></div>
   <img class="bond" id="bond-linear-1" alt="" onclick="changeImage(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png" />    
-  <img class="bond" id="bond-linear-2" alt="" onclick="changeImage(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-2.png" />
+  <img class="bond" id="bond-linear-2" alt="" onclick="changeImage(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png" />
   <canvas id="Canvas1" width="70" height="70"></canvas>
   <canvas id="Canvas2" width="70" height="70"></canvas>
   <canvas id="Canvas3" width="70" height="70"></canvas> 
   <div class="spacer"></div>
-  <div id="bottom-buttons">
+  <div class="bottom-buttons">
     <button id="clear-btn" onclick="clearBoxesLinear()">Clear</button>
     <button id="submit-btn" onclick="submitAnswerLinear()">Submit</button>
     <button id="try-btn" onclick="refreshPage()">Try Another</button>
@@ -67,12 +67,12 @@
 <div class="dropBox tri_planar-box" id="div2-tri_planar-test"></div>   
 <div class="dropBox tri_planar-box" id="div3-tri_planar-test"></div>
 <div class="dropBox tri_planar-box" id="div5-tri_planar-test"></div>
-<img class="bond" id="bond1-tri_planar-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
-<img class="bond" id="bond2-tri_planar-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
-<img class="bond" alt="" id="bond3-tri_planar-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png" />
+<img class="bond" id="bond1-tri_planar-test" alt="" onclick="changeImageTriPl1(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond2-tri_planar-test" alt="" onclick="changeImageTriPl2(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
+<img class="bond" id="bond3-tri_planar-test" alt="" onclick="changeImageTriPl3(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png" />
 <canvas id="Canvas7" width="70" height="70"></canvas>  
 <div class="spacer"></div>
-<div id="bottom-buttons">
+<div class="bottom-buttons">
   <button id="clear-btn" onclick="clearBoxesPlanarTest()">Clear</button>
   <button id="submit-btn" onclick="submitAnswerPlanar()">Submit</button>
   <button id="try-btn" onclick="refreshPage()">Try Another</button>
@@ -86,13 +86,13 @@
 <div class="dropBox tetra-box" id="div5-tetra-test"></div>
 <div class="dropBox tetra-box" id="div4-tetra-test"></div> 
 <div class="dropBox tetra-box" id="div2-tetra-test"></div>   
-<img class="bond" id="bond1-tetra-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
-<img class="bond" id="bond2-tetra-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
+<img class="bond" id="bond1-tetra-test" alt="" onclick="changeImageTetra1(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond2-tetra-test" alt="" onclick="changeImageTetra2(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
 <img class="bond" alt="" id="bond3-tetra-test" style="height:50px;" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-3.png" />   
 <img class="bond" alt="" id="bond4-tetra-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-4.png" />
 <canvas id="Canvas26" width="70" height="70"></canvas>   
 <div class="spacer"></div>
-<div id="bottom-buttons">
+<div class="bottom-buttons">
   <button id="clear-btn" onclick="clearBoxesTetraTest()">Clear</button>
   <button id="submit-btn" onclick="submitAnswerTetra()">Submit</button>
   <button id="try-btn" onclick="refreshPage()">Try Another</button>
@@ -108,19 +108,14 @@
 <div class="dropBox trigonalbi-box" id="div4-trigonalbi-test"></div>
 <div class="dropBox trigonalbi-box" id="div5-trigonalbi-test"></div>  
 <div class="dropBox trigonalbi-box" id="div6-trigonalbi-test"></div>
-<img class="bond" id="bond1-trigonalbi-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond1-trigonalbi-test" onclick="changeImageOct(this)" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
 <img class="bond" id="bond3-trigonalbi-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-7.png" />
-<img class="bond" id="bond4-trigonalbi-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond4-trigonalbi-test" onclick="changeImageOct(this)" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
 <img class="bond" id="bond2-trigonalbi-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-8.png" />
 <img class="bond" alt="" id="bond5-trigonalbi-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-6.png" />
-<canvas id="Canvas13" width="70" height="70"></canvas>
-<canvas id="Canvas14" width="70" height="70"></canvas>
-<canvas id="Canvas15" width="70" height="70"></canvas>
-<canvas id="Canvas16" width="70" height="70"></canvas>
 <canvas id="Canvas17" width="70" height="70"></canvas>
-<canvas id="Canvas18" width="70" height="70"></canvas>  
 <div class="spacer"></div>
-<div id="bottom-buttons">
+<div class="bottom-buttons">
   <button id="clear-btn" onclick="clearBoxesTrigonalbiTest()">Clear</button>
   <button id="submit-btn" onclick="submitAnswerTrigonalbiTest()">Submit</button>
   <button id="try-btn" onclick="refreshPage()">Try Another</button>
@@ -136,26 +131,26 @@
 <div class="dropBox octahedral-box" id="div7-octahedral-test" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 <div class="dropBox octahedral-box" id="div4-octahedral-test" ondrop="drop(event)"ondragover="allowDrop(event)"></div>  
 <div class="dropBox octahedral-box" id="div5-octahedral-test" ondrop="drop(event)"ondragover="allowDrop(event)"></div>
-<img class="bond" id="bond1-octahedral-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond1-octahedral-test" onclick="changeImageOct(this)" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
 <img class="bond" id="bond3-octahedral-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-7.png" />
-<img class="bond" id="bond4-octahedral-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
+<img class="bond" id="bond4-octahedral-test" onclick="changeImageOct(this)" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
 <img class="bond" id="bond2-octahedral-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-8.png" />
 <img class="bond" id="bond6-octahedral-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-11.png" />
 <img class="bond" id="bond5-octahedral-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-10.png" />
 <canvas id="Canvas23" width="70" height="70"></canvas>
 <div class="spacer"></div>
-<div id="bottom-buttons">
+<div class="bottom-buttons">
   <button id="clear-btn" onclick="clearBoxesOctahedralTest()">Clear</button>
   <button id="submit-btn" onclick="submitAnswerOctahedralTest()">Submit</button>
   <button id="try-btn" onclick="refreshPage()">Try Another</button>
-  </div>
+</div>
 </div>
 </div>
  
-
-<div>
+<div id="fb">
 <p id="feedback">&nbsp;</p>
 </div>
+
 
 <script src="main.js"></script>
 <script src="linear.js"></script>
@@ -163,5 +158,6 @@
 <script src="trigonalbi-test.js"></script>
 <script src="octahedral-test.js"></script>
 <script src="tetra-test.js"></script>
+</div>
 </body>
 </html>
