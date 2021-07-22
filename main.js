@@ -1,4 +1,4 @@
-var data = '[{ "molecule":"SF6", "S":1, "F":6, "ePairs":0 }, { "molecule":"CH4", "C":1, "H":4, "ePairs":0 }, { "molecule":"BH3", "B":1, "H":3, "ePairs":0 }, { "molecule":"PF5", "P":1, "F":5, "ePairs":0 }]';
+var data = '[{ "molecule":"CO2", "C":1, "O":2, "ePairs":0 },{ "molecule":"SF6", "S":1, "F":6, "ePairs":0 }, { "molecule":"CH4", "C":1, "H":4, "ePairs":0 }, { "molecule":"BH3", "B":1, "H":3, "ePairs":0 }, { "molecule":"PF5", "P":1, "F":5, "ePairs":0 }]';
 
 var selected;
 var moleculeVars = ["CO2","BH3","CH4","PF5","SF6"];
@@ -90,7 +90,7 @@ jQuery(".atom").click(function(){
   // highlight boxes where atom can be placed
   x = document.querySelectorAll(".dropBox");
   for (i = 0; i < x.length; i++) {
-    x[i].style.backgroundColor = "#FBFB92";
+    x[i].style.backgroundColor = "";
     x[i].style.cursor = "pointer";
   }
 
@@ -101,7 +101,8 @@ jQuery(".atom").click(function(){
     e.stopImmediatePropagation(); 
    
      var target_box = this.id;
-     var div_id = target_box.substring(0, 4); 
+     var div_id = target_box.substring(0, 4);
+     console.log(div_id); 
       if (atom !== "pair") {
         document.getElementById(target_box).innerHTML = atom;
       }
@@ -112,24 +113,26 @@ jQuery(".atom").click(function(){
 
     if (selected=="linear") {
 
-        if (div_id=="div3") {
-          addPoints(angles3[count3], ctx3);
-          CO2_ans.a3_e += 1;
-          count3 += 1;
-        }
-        
-        if (div_id=="div2") {
-          addPoints(angles2[count2], ctx2);
-          CO2_ans.a2_e += 1;
-          count2 += 1;
+      document.getElementById(target_box).innerHTML = "&#183;&#183;";
+      var div_id_new = "bond-linear-"+div_id[3];
+      var bondid = div_id_new.replace("div", "bond");
+      console.log(bondid);
+      document.getElementById(bondid).style.visibility ="hidden";
+      document.getElementById(div_id+"-linear").style.visibility ="hidden";
 
-        }
-        
-        if (div_id=="div1") {
-          addPoints(angles1[count1], ctx1);
-          CO2_ans.a1_e += 1;
-          count1 += 1;
-        }
+      var n = div_id[3];
+      var ob = "ctxLinear"+n.toString();
+      var ob1 = "cLinear"+n.toString();
+      var cx = eval(ob);
+      var c = eval(ob1);
+      
+      cx.clearRect(0, 0, c.width, c.height);
+
+      var numStr = div_id.replace("div","");
+      var num = parseInt(numStr);
+
+      addPoints(anglesLinear[num-1], ctxLinear);
+      countLinear += 1;
     }
 
       else if (selected=="tetrahedral-test") {
@@ -139,11 +142,19 @@ jQuery(".atom").click(function(){
         document.getElementById(bondid).style.visibility ="hidden";
         document.getElementById(div_id+"-tetra-test").style.visibility ="hidden";
 
+        var n = div_id[3];
+        var ob = "ctxTetra"+n.toString();
+        var ob1 = "cTetra"+n.toString();
+        var cx = eval(ob);
+        var c = eval(ob1);
+        
+        cx.clearRect(0, 0, c.width, c.height);
+
         var numStr = div_id.replace("div","");
         var num = parseInt(numStr);
 
-        addPoints(angles26[num-1], ctx26);
-        count26 += 1;
+        addPoints(anglesTetra[num-1], ctxTetra);
+        countTetra += 1;
       }
 
       else if (selected=="tri_planar-test") {
@@ -153,11 +164,19 @@ jQuery(".atom").click(function(){
         document.getElementById(bondid).style.visibility ="hidden";
         document.getElementById(div_id+"-tri_planar-test").style.visibility ="hidden";
 
+        var n = div_id[3];
+        var ob = "ctxTri"+n.toString();
+        var ob1 = "cTri"+n.toString();
+        var cx = eval(ob);
+        var c = eval(ob1);
+        
+        cx.clearRect(0, 0, c.width, c.height);
+
         var numStr = div_id.replace("div","");
         var num = parseInt(numStr);
 
-        addPoints(angles7[num-1], ctx7);
-        count7 += 1;
+        addPoints(anglesTri[num-1], ctxTri);
+        countTri += 1;
       }
 
       else if (selected=="trigonalbi-test") {
@@ -167,11 +186,19 @@ jQuery(".atom").click(function(){
         document.getElementById(bondid).style.visibility ="hidden";
         document.getElementById(div_id+"-trigonalbi-test").style.visibility ="hidden";
 
+        var n = div_id[3];
+        var ob = "ctxTriBi"+n.toString();
+        var ob1 = "cTriBi"+n.toString();
+        var cx = eval(ob);
+        var c = eval(ob1);
+        
+        cx.clearRect(0, 0, c.width, c.height);
+
         var numStr = div_id.replace("div","");
         var num = parseInt(numStr);
 
-        addPoints(angles17[num-1], ctx17);
-        count17 += 1;
+        addPoints(anglesTriBi[num-1], ctxTriBi);
+        countTriBi += 1;
       }
 
       else if (selected=="octahedral-test") {
@@ -181,11 +208,20 @@ jQuery(".atom").click(function(){
         document.getElementById(bondid).style.visibility ="hidden";
         document.getElementById(div_id+"-octahedral-test").style.visibility ="hidden";
 
+        var n = div_id[3];
+        var ob = "ctxOcta"+n.toString();
+        var ob1 = "cOcta"+n.toString();
+        var cx = eval(ob);
+        var c = eval(ob1);
+        
+
+        cx.clearRect(0, 0, c.width, c.height);
+
         var numStr = div_id.replace("div","");
         var num = parseInt(numStr);
 
-        addPoints(angles23[num-1], ctx23);
-        count23 += 1;
+        addPoints(anglesOcta[num-1], ctxOcta);
+        countOcta += 1;
       }
 
     }  

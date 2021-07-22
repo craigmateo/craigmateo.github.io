@@ -1,7 +1,7 @@
 // Global variables 
-var count23=0; // counts for lone pair additions
+var countOcta=0; // counts for lone pair additions
 var atom;
-var angles23 = [90,135,225,270,-45,45]; // angles for circles (to add lone pair) 
+var anglesOcta = [90,135,225,270,-45,45]; // angles for circles (to add lone pair) 
 
 // clear content in molecule
 
@@ -31,13 +31,20 @@ function clearBoxesOctahedralTest() {
 
   document.getElementById("bond1-octahedral-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
   document.getElementById("bond4-octahedral-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
-
-
-  ctx23.clearRect(0, 0, c23.width, c23.height);
-
-  count23=alpha23=0;
+ 
+  ctxOcta1.clearRect(0, 0, cOcta1.width, cOcta1.height);
+  ctxOcta2.clearRect(0, 0, cOcta2.width, cOcta2.height);
+  ctxOcta3.clearRect(0, 0, cOcta3.width, cOcta3.height);
+  ctxOcta4.clearRect(0, 0, cOcta4.width, cOcta4.height);
+  ctxOcta5.clearRect(0, 0, cOcta5.width, cOcta5.height);
+  ctxOcta6.clearRect(0, 0, cOcta6.width, cOcta6.height);
+  ctxOcta7.clearRect(0, 0, cOcta7.width, cOcta7.height);
+  ctxOcta.clearRect(0, 0, cOcta.width, cOcta.height);
+  
+  countOcta=alphaOcta=0;
   atom="";
   document.getElementById("feedback").innerHTML = "&nbsp;";
+  drawCircleOcta();
 }
 
 /*
@@ -46,7 +53,7 @@ called when submit button is clicked
 
 function submitAnswerOctahedralTest() { 
   res["molecule"]=mol;
-  res["ePairs"]=count23;
+  res["ePairs"]=countOcta;
   var boxes = document.querySelectorAll(".octahedral-box");
   for (var i = 0; i < boxes.length; i++) {
     var b = boxes[i].innerHTML;
@@ -74,21 +81,77 @@ function submitAnswerOctahedralTest() {
 // electron circles
 
 //Define Variables
-var radius = 32;
+var radius = 22;
 var point_size = 2;
 var center_x = 35;
 var center_y = 34;
 var font_size = "15px";
 
-var c23 = document.getElementById("Canvas23");
+var radius1 = 30;
+var point_size1 = 2;
+var center_x1 = 35;
+var center_y1 = 34;
+var font_size1 = "15px";
 
-var ctx23 = c23.getContext("2d");
-ctx23.strokeStyle = 'rgba(0,0,0,0)';
+var cOcta1 = document.getElementById("CanvasOcta1");
+var cOcta2 = document.getElementById("CanvasOcta2");
+var cOcta3 = document.getElementById("CanvasOcta3");
+var cOcta4 = document.getElementById("CanvasOcta4");
+var cOcta5 = document.getElementById("CanvasOcta5");
+var cOcta6 = document.getElementById("CanvasOcta6");
+var cOcta7 = document.getElementById("CanvasOcta7");
+var cOcta = document.getElementById("CanvasOcta");
 
-function drawCircle(){
-    ctx23.beginPath();
-    ctx23.arc(center_x, center_y, radius, 0, 2 * Math.PI);
-    ctx23.stroke();
+var ctxOcta1 = cOcta1.getContext("2d");
+var ctxOcta2 = cOcta2.getContext("2d");
+var ctxOcta3 = cOcta3.getContext("2d");
+var ctxOcta4 = cOcta4.getContext("2d");
+var ctxOcta5 = cOcta5.getContext("2d");
+var ctxOcta6 = cOcta6.getContext("2d");
+var ctxOcta7 = cOcta7.getContext("2d");
+var ctxOcta = cOcta.getContext("2d");
+ctxOcta1.strokeStyle = 'rgba(0,0,0,0.7)';
+ctxOcta2.strokeStyle = 'rgba(0,0,0,0.7)';
+ctxOcta3.strokeStyle = 'rgba(0,0,0,0.7)';
+ctxOcta4.strokeStyle = 'rgba(0,0,0,0.7)';
+ctxOcta5.strokeStyle = 'rgba(0,0,0,0.7)';
+ctxOcta6.strokeStyle = 'rgba(0,0,0,0.7)';
+ctxOcta7.strokeStyle = 'rgba(0,0,0,0.7)';
+ctxOcta.strokeStyle = 'rgba(0,0,0,0)';
+
+function drawCircleOcta(){
+
+    ctxOcta1.beginPath();
+    ctxOcta1.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta1.stroke();
+
+    ctxOcta2.beginPath();
+    ctxOcta2.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta2.stroke();
+
+    ctxOcta3.beginPath();
+    ctxOcta3.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta3.stroke();
+
+    ctxOcta4.beginPath();
+    ctxOcta4.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta4.stroke();
+
+    ctxOcta5.beginPath();
+    ctxOcta5.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta5.stroke();
+
+    ctxOcta6.beginPath();
+    ctxOcta6.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta6.stroke();
+
+    ctxOcta7.beginPath();
+    ctxOcta7.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta7.stroke();
+
+    ctxOcta.beginPath();
+    ctxOcta.arc(center_x1, center_y1, radius1, 0, 2 * Math.PI);
+    ctxOcta.stroke();
 }
 
 function drawPoint(c,angle,distance,label){
@@ -104,7 +167,7 @@ function drawPoint(c,angle,distance,label){
 }
 
 //Execution
-drawCircle();
+drawCircleOcta();
 
 function addPoints(alpha, canvas) {
   drawPoint(canvas,alpha+7,1,"");

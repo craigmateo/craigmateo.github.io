@@ -1,11 +1,7 @@
 // Global variables 
-var count1=0; // counts for lone pair additions
-var count2=0; 
-var count3=0; 
+var countLinear=0; 
 var atom;
-var angles1 = [90,270]; // angles for circles (to add lone pair) 
-var angles2 = [90,270,180];
-var angles3 = [90,270,0];
+var anglesLinear = [180,0];
 
 // JSON variable for submitted molecule
 var CO2_ans = { a1: "", a2: "", a3: "", a1_e: 0, a2_e: 0, a3_e: 0};
@@ -32,16 +28,23 @@ function clearBoxesLinear() {
     eboxes[i].innerHTML = ""; // clear previous atom highlight
   }
 
+  var bonds = document.querySelectorAll(".bond");
+  for (var i = 0; i < bonds.length; i++) {
+    bonds[i].style.visibility = "visible"; // clear previous bond hidden
+  }
+
   document.getElementById("bond-linear-1").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png";
   document.getElementById("bond-linear-2").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png";
 
-  ctx1.clearRect(0, 0, c1.width, c1.height);
-  ctx2.clearRect(0, 0, c2.width, c2.height);
-  ctx3.clearRect(0, 0, c3.width, c3.height);
+  ctxLinear1.clearRect(0, 0, cLinear1.width, cLinear1.height);
+  ctxLinear2.clearRect(0, 0, cLinear2.width, cLinear2.height);
+  ctxLinear3.clearRect(0, 0, cLinear3.width, cLinear3.height);
+  ctxLinear.clearRect(0, 0, cLinear.width, cLinear.height);
   CO2_ans.a3_e=CO2_ans.a2_e=CO2_ans.a1_e = 0;
   count1=count2=count3=alpha1=alpha2=alpha3 = 0;
   atom="";
   document.getElementById("feedback").innerHTML = "&nbsp;";
+  drawCircleLinear();
 }
 
 /*
@@ -49,24 +52,25 @@ called when submit button is clicked
 */
 
 function submitAnswerLinear() { 
-  var a1 = document.getElementById("div1-linear").innerHTML;
-  var a2 = document.getElementById("div2-linear").innerHTML;
-  var a3 = document.getElementById("div3-linear").innerHTML;
-  var img1 = document.getElementById("bond-linear-1").src;
-  var img2 = document.getElementById("bond-linear-2").src;
-  CO2_ans.a1 = a1;
-  CO2_ans.a2 = a2;
-  CO2_ans.a3 = a3;
-  console.log(CO2_ans);
+  res["molecule"]=mol;
+  res["ePairs"]=countLinear;
+  var boxes = document.querySelectorAll(".linear-box");
+  for (var i = 0; i < boxes.length; i++) {
+    var b = boxes[i].innerHTML;
+    if (res[b] == null) {
+        res[b]=1;
+      }
+    else {
+      res[b]=res[b]+1;
+    }
+  }
   var fb = document.getElementById("feedback");
   
-  if (isEquivalentLinear(CO2_ans, CO2_cor) && img1.includes("double") && img2.includes("double")) {
+  if (isEquivalentLinear(n, res) && selectedCorr==selected) {
     fb.innerHTML = "Correct!";
-    document.getElementById("div1-linear").innerHTML;
   }
   
   else {
-    console.log("Incorrect.");
     fb.innerHTML = "Incorrect";
   }
 
@@ -76,37 +80,51 @@ function submitAnswerLinear() {
 // electron circles
 
 //Define Variables
-var radius = 32;
+var radius = 22;
 var point_size = 2;
 var center_x = 35;
 var center_y = 34;
 var font_size = "15px";
 
-var c1 = document.getElementById("Canvas1");
-var c2 = document.getElementById("Canvas2");
-var c3 = document.getElementById("Canvas3");
+var radius1 = 30;
+var point_size1 = 2;
+var center_x1 = 35;
+var center_y1 = 34;
+var font_size1 = "15px";
 
-var ctx1 = c1.getContext("2d");
-ctx1.strokeStyle = 'rgba(0,0,0,0)';
+var cLinear1 = document.getElementById("CanvasLinear1");
+var cLinear2 = document.getElementById("CanvasLinear2");
+var cLinear3 = document.getElementById("CanvasLinear3");
+var cLinear = document.getElementById("CanvasLinear");
 
-var ctx2 = c2.getContext("2d");
-ctx2.strokeStyle = 'rgba(0,0,0,0)';
+var ctxLinear1 = cLinear1.getContext("2d");
+ctxLinear1.strokeStyle = 'rgba(0,0,0,0.7)';
 
-var ctx3 = c3.getContext("2d");
-ctx3.strokeStyle = 'rgba(0,0,0,0)';
+var ctxLinear2 = cLinear2.getContext("2d");
+ctxLinear2.strokeStyle = 'rgba(0,0,0,0.7)';
 
-function drawCircle(){
-    ctx1.beginPath();
-    ctx1.arc(center_x, center_y, radius, 0, 2 * Math.PI);
-    ctx1.stroke(); 
+var ctxLinear3 = cLinear3.getContext("2d");
+ctxLinear3.strokeStyle = 'rgba(0,0,0,0.7)';
+
+var ctxLinear = cLinear.getContext("2d");
+ctxLinear.strokeStyle = 'rgba(0,0,0,0)';
+
+function drawCircleLinear(){
+    ctxLinear1.beginPath();
+    ctxLinear1.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxLinear1.stroke(); 
   
-    ctx2.beginPath();
-    ctx2.arc(center_x, center_y, radius, 0, 2 * Math.PI);
-    ctx2.stroke(); 
+    ctxLinear2.beginPath();
+    ctxLinear2.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxLinear2.stroke(); 
   
-    ctx3.beginPath();
-    ctx3.arc(center_x, center_y, radius, 0, 2 * Math.PI);
-    ctx3.stroke(); 
+    ctxLinear3.beginPath();
+    ctxLinear3.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxLinear3.stroke(); 
+
+    ctxLinear.beginPath();
+    ctxLinear.arc(center_x1, center_y1, radius1, 0, 2 * Math.PI);
+    ctxLinear.stroke(); 
 }
 
 function drawPoint(c,angle,distance,label){
@@ -122,7 +140,7 @@ function drawPoint(c,angle,distance,label){
 }
 
 //Execution
-drawCircle();
+drawCircleLinear();
 
 function addPoints(alpha, canvas) {
   drawPoint(canvas,alpha+7,1,"");

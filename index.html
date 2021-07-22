@@ -17,11 +17,11 @@
 
 <label for="geometry">Select geometry:</label>
 <select class="select-css" name="geometry" id="geometry" onchange=place();>
-<option value="octahedral-test">Octahedral</option>
+<option value="linear">Linear</option>
 <option value="trigonalbi-test">Trigonal bipyramidal</option>
 <option value="tri_planar-test">Trigonal planar</option>
 <option value="tetrahedral-test">Tetrahedral</option>
-<option value="linear">Linear</option>
+<option value="octahedral-test">Octahedral</option>
 </select>
 
 <h3>Step 2 - Complete the structure</h3>  
@@ -50,14 +50,15 @@
 
 <!--Linear-->
 <div class="step2" id="step2-linear">
-  <div class="dropBox" id="div1-linear"></div>  
-  <div class="dropBox" id="div2-linear"></div>    
-  <div class="dropBox" id="div3-linear"></div>
+  <div class="dropBox linear-box" id="div1-linear"></div>  
+  <div class="dropBox linear-box" id="div3-linear"></div>    
+  <div class="dropBox linear-box" id="div2-linear"></div>
   <img class="bond" id="bond-linear-1" alt="" onclick="changeImage(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png" />    
   <img class="bond" id="bond-linear-2" alt="" onclick="changeImage(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png" />
-  <canvas id="Canvas1" width="70" height="70"></canvas>
-  <canvas id="Canvas2" width="70" height="70"></canvas>
-  <canvas id="Canvas3" width="70" height="70"></canvas> 
+  <canvas id="CanvasLinear1" width="70" height="70"></canvas>
+  <canvas id="CanvasLinear2" width="70" height="70"></canvas>
+  <canvas id="CanvasLinear3" width="70" height="70"></canvas> 
+  <canvas id="CanvasLinear" width="70" height="70"></canvas> 
   <div class="spacer"></div>
   <div class="bottom-buttons">
     <button id="clear-btn" onclick="clearBoxesLinear()">Clear</button>
@@ -75,7 +76,14 @@
 <img class="bond" id="bond1-tri_planar-test" alt="" onclick="changeImageTriPl1(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
 <img class="bond" id="bond2-tri_planar-test" alt="" onclick="changeImageTriPl2(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
 <img class="bond" id="bond3-tri_planar-test" alt="" onclick="changeImageTriPl3(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png" />
-<canvas id="Canvas7" width="70" height="70"></canvas>  
+<img class="skeleton" id="tripl-sk" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/Trigonal_Planar-Circle.png" />
+
+<canvas id="CanvasTri1" width="70" height="70"></canvas>
+<canvas id="CanvasTri2" width="70" height="70"></canvas>
+<canvas id="CanvasTri3" width="70" height="70"></canvas>
+<canvas id="CanvasTri4" width="70" height="70"></canvas>
+
+<canvas id="CanvasTri" width="70" height="70"></canvas>  
 <div class="spacer"></div>
 <div class="bottom-buttons">
   <button id="clear-btn" onclick="clearBoxesPlanarTest()">Clear</button>
@@ -95,7 +103,13 @@
 <img class="bond" id="bond2-tetra-test" alt="" onclick="changeImageTetra2(this)" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png" />
 <img class="bond" alt="" id="bond3-tetra-test" style="height:50px;" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-3.png" />   
 <img class="bond" alt="" id="bond4-tetra-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-4.png" />
-<canvas id="Canvas26" width="70" height="70"></canvas>   
+<img class="skeleton" id="tetra-sk" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/Tetrahedral-Circle.png" />
+<canvas id="CanvasTetra1" width="70" height="70"></canvas> 
+<canvas id="CanvasTetra2" width="70" height="70"></canvas>  
+<canvas id="CanvasTetra3" width="70" height="70"></canvas>  
+<canvas id="CanvasTetra4" width="70" height="70"></canvas>  
+<canvas id="CanvasTetra5" width="70" height="70"></canvas> 
+<canvas id="CanvasTetra" width="70" height="70"></canvas>   
 <div class="spacer"></div>
 <div class="bottom-buttons">
   <button id="clear-btn" onclick="clearBoxesTetraTest()">Clear</button>
@@ -118,7 +132,14 @@
 <img class="bond" id="bond4-trigonalbi-test" onclick="changeImageOct(this)" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png" />
 <img class="bond" id="bond2-trigonalbi-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-8.png" />
 <img class="bond" alt="" id="bond5-trigonalbi-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-6.png" />
-<canvas id="Canvas17" width="70" height="70"></canvas>
+<img class="skeleton" id="tribi-sk" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/Trigonal_Bipyramidal-Circle.png" />
+<canvas id="CanvasTriBi1" width="70" height="70"></canvas>
+<canvas id="CanvasTriBi2" width="70" height="70"></canvas> 
+<canvas id="CanvasTriBi3" width="70" height="70"></canvas> 
+<canvas id="CanvasTriBi4" width="70" height="70"></canvas> 
+<canvas id="CanvasTriBi5" width="70" height="70"></canvas>
+<canvas id="CanvasTriBi6" width="70" height="70"></canvas>  
+<canvas id="CanvasTriBi" width="70" height="70"></canvas>
 <div class="spacer"></div>
 <div class="bottom-buttons">
   <button id="clear-btn" onclick="clearBoxesTrigonalbiTest()">Clear</button>
@@ -142,7 +163,16 @@
 <img class="bond" id="bond2-octahedral-test" alt="" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-8.png" />
 <img class="bond" id="bond6-octahedral-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-11.png" />
 <img class="bond" id="bond5-octahedral-test" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-10.png" />
-<canvas id="Canvas23" width="70" height="70"></canvas>
+<img class="skeleton" id="octahedral-sk" src="https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/Octahedral-Circle.png" />
+
+<canvas id="CanvasOcta1" width="70" height="70"></canvas>
+<canvas id="CanvasOcta2" width="70" height="70"></canvas>
+<canvas id="CanvasOcta3" width="70" height="70"></canvas>
+<canvas id="CanvasOcta4" width="70" height="70"></canvas>
+<canvas id="CanvasOcta5" width="70" height="70"></canvas>
+<canvas id="CanvasOcta6" width="70" height="70"></canvas>
+<canvas id="CanvasOcta7" width="70" height="70"></canvas>
+<canvas id="CanvasOcta" width="70" height="70"></canvas>
 <div class="spacer"></div>
 <div class="bottom-buttons">
   <button id="clear-btn" onclick="clearBoxesOctahedralTest()">Clear</button>
