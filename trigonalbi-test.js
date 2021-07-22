@@ -64,7 +64,7 @@ function submitAnswerTrigonalbiTest() {
   }
   var fb = document.getElementById("feedback");
   
-  if (isEquivalentTriBihedral(n, res) && selectedCorr==selected) {
+  if (isEquivalentTrigonalbi(n, res) && selectedCorr==selected) {
     fb.innerHTML = "Correct!";
   }
   

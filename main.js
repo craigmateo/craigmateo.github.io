@@ -102,7 +102,7 @@ jQuery(".atom").click(function(){
    
      var target_box = this.id;
      var div_id = target_box.substring(0, 4);
-     console.log(div_id); 
+
       if (atom !== "pair") {
         document.getElementById(target_box).innerHTML = atom;
       }
@@ -116,7 +116,6 @@ jQuery(".atom").click(function(){
       document.getElementById(target_box).innerHTML = "&#183;&#183;";
       var div_id_new = "bond-linear-"+div_id[3];
       var bondid = div_id_new.replace("div", "bond");
-      console.log(bondid);
       document.getElementById(bondid).style.visibility ="hidden";
       document.getElementById(div_id+"-linear").style.visibility ="hidden";
 

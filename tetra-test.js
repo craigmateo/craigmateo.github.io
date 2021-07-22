@@ -3,12 +3,6 @@ var countTetra=0; // counts for lone pair additions
 var atom;
 var anglesTetra = [90,220,300,-20]; // angles for circles (to add lone pair) 
 
-// JSON variable for submitted molecule
-var CH4_ans = { a1: "", a2: "", a3: "", a4: "", a5: "", a1_e: 0, a2_e: 0, a3_e: 0, a4_e: 0,a5_e: 0};
-
-// JSON variable for correct molecule
-var CH4_cor = { a1: "H", a2: "H", a3: "H", a4: "H", a5: "C", a1_e: 0, a2_e: 0, a3_e: 0, a4_e: 0, a5_e: 0};
-
 // clear content in molecule
 
 function clearBoxesTetraTest() {

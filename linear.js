@@ -3,12 +3,6 @@ var countLinear=0;
 var atom;
 var anglesLinear = [180,0];
 
-// JSON variable for submitted molecule
-var CO2_ans = { a1: "", a2: "", a3: "", a1_e: 0, a2_e: 0, a3_e: 0};
-
-// JSON variable for correct molecule
-var CO2_cor = { a1: "C", a2: "O", a3: "O", a1_e: 0, a2_e: 2, a3_e: 2};
-
 // clear content in molecule
 
 function clearBoxesLinear() {
@@ -40,8 +34,8 @@ function clearBoxesLinear() {
   ctxLinear2.clearRect(0, 0, cLinear2.width, cLinear2.height);
   ctxLinear3.clearRect(0, 0, cLinear3.width, cLinear3.height);
   ctxLinear.clearRect(0, 0, cLinear.width, cLinear.height);
-  CO2_ans.a3_e=CO2_ans.a2_e=CO2_ans.a1_e = 0;
-  count1=count2=count3=alpha1=alpha2=alpha3 = 0;
+
+  countLinear=anglesLinear== 0;
   atom="";
   document.getElementById("feedback").innerHTML = "&nbsp;";
   drawCircleLinear();
@@ -65,6 +59,8 @@ function submitAnswerLinear() {
     }
   }
   var fb = document.getElementById("feedback");
+  console.log(n);
+  console.log(res);
   
   if (isEquivalentLinear(n, res) && selectedCorr==selected) {
     fb.innerHTML = "Correct!";
@@ -99,13 +95,10 @@ var cLinear = document.getElementById("CanvasLinear");
 
 var ctxLinear1 = cLinear1.getContext("2d");
 ctxLinear1.strokeStyle = 'rgba(0,0,0,0.7)';
-
 var ctxLinear2 = cLinear2.getContext("2d");
 ctxLinear2.strokeStyle = 'rgba(0,0,0,0.7)';
-
 var ctxLinear3 = cLinear3.getContext("2d");
 ctxLinear3.strokeStyle = 'rgba(0,0,0,0.7)';
-
 var ctxLinear = cLinear.getContext("2d");
 ctxLinear.strokeStyle = 'rgba(0,0,0,0)';
 
@@ -139,8 +132,10 @@ function drawPoint(c,angle,distance,label){
     c.fillText(label,x + 10,y);
 }
 
-//Execution
 drawCircleLinear();
+
+//Execution
+
 
 function addPoints(alpha, canvas) {
   drawPoint(canvas,alpha+7,1,"");
