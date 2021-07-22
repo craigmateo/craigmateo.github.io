@@ -38,7 +38,7 @@ function clearBoxesTrigonalbiTest() {
   ctxTriBi4.clearRect(0, 0, cTriBi4.width, cTriBi4.height);
   ctxTriBi5.clearRect(0, 0, cTriBi5.width, cTriBi5.height);
   ctxTriBi6.clearRect(0, 0, cTriBi6.width, cTriBi6.height);
-  ctxTriBi.clearRect(0, 0, cTriBi7.width, cTriBi7.height);
+  ctxTriBi.clearRect(0, 0, cTriBi.width, cTriBi.height);
   countTriBi=alphaTriBi=0;
   atom="";
   document.getElementById("feedback").innerHTML = "&nbsp;";
