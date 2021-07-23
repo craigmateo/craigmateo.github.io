@@ -102,7 +102,7 @@ var ctxTri = cTri.getContext("2d");
 ctxTri1.strokeStyle = 'rgba(0,0,0,0.7)';
 ctxTri2.strokeStyle = 'rgba(0,0,0,0.7)';
 ctxTri3.strokeStyle = 'rgba(0,0,0,0.7)';
-ctxTri.strokeStyle = 'rgba(0,0,0,0)';
+ctxTri.strokeStyle = 'rgba(0,0,0,0.4)';
 
 function drawCircleTri(){
 

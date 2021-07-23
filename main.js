@@ -45,8 +45,6 @@ place();
 
 function clearAll(s) {
 
-  var res = {};
-
   if (s=="linear") {
     clearBoxesLinear();
   }
