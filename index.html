@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html>
 <head>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
+
+<div class="tool-content">
 
 <div class="header" id="myHeader">
   <h1>Molecular Geometry</h1>
 </div>
-
-<body>
-<div class="content">
 
 <p>Draw the structure for <span id="variationMol">-</span>. Start by selecting from the electron pair geometry menu.</p>
 <h3>Step 1 - Select geometry</h3>  
@@ -30,18 +27,18 @@
 <table id="element-table">
 <thead>
   <tr>
-    <th><button class="atom" id="C" width="35" height="35">C</button></th>
-    <th><button class="atom" id="H" width="35" height="35">H</button></th>
-    <th><button class="atom" id="N" width="35" height="35">N</button></th>
-    <th><button class="atom" id="O" width="35" height="35">O</button></th>
-    <th><button class="atom" id="P" width="35" height="35">P</button></th>
-    <th><button class="atom" id="S" width="35" height="35">S</button></th>
-    <th><button class="atom" id="F" width="35" height="35">F</button></th>
-    <th><button class="atom" id="B" width="35" height="35">B</button></th>
-    <th><button class="atom" id="Cl" width="35" height="35">Cl</button></th>
-    <th><button class="atom" id="Br" width="35" height="35">Br</button></th>
-    <th><button class="atom" id="I" width="35" height="35">I</button></th>
-    <th><button class="atom" id="pair" width="35" height="35">&#183;&#183;</button></th>
+    <th><button class="atom" id="C" width="35" height="35" onClick="reply_click(this.id)">C</button></th>
+    <th><button class="atom" id="H" width="35" height="35" onClick="reply_click(this.id)">H</button></th>
+    <th><button class="atom" id="N" width="35" height="35" onClick="reply_click(this.id)">N</button></th>
+    <th><button class="atom" id="O" width="35" height="35" onClick="reply_click(this.id)">O</button></th>
+    <th><button class="atom" id="P" width="35" height="35" onClick="reply_click(this.id)">P</button></th>
+    <th><button class="atom" id="S" width="35" height="35" onClick="reply_click(this.id)">S</button></th>
+    <th><button class="atom" id="F" width="35" height="35" onClick="reply_click(this.id)">F</button></th>
+    <th><button class="atom" id="B" width="35" height="35" onClick="reply_click(this.id)">B</button></th>
+    <th><button class="atom" id="Cl" width="35" height="35" onClick="reply_click(this.id)">Cl</button></th>
+    <th><button class="atom" id="Br" width="35" height="35" onClick="reply_click(this.id)">Br</button></th>
+    <th><button class="atom" id="I" width="35" height="35" onClick="reply_click(this.id)">I</button></th>
+    <th><button class="atom" id="pair" width="35" height="35" onClick="reply_click(this.id)">&#183;&#183;</button></th>
   </tr>
 </thead>
 </table>
@@ -187,15 +184,2022 @@
 </div>
 
 
-<script src="main.js"></script>
-<script src="linear.js"></script>
-<script src="tri-planar-test.js"></script>
-<script src="trigonalbi-test.js"></script>
-<script src="octahedral-test.js"></script>
-<script src="tetra-test.js"></script>
 </div>
-</body>
+
 <div class="footer">
   <p>&nbsp;</p>
 </div>
-</html>
+
+
+<style>
+p, td {
+   font-family: 'Source Sans Pro', sans-serif;
+   font-size: 16px;
+   color:#333333;
+   line-height: 26px; margin: 0 0 24px; 
+}
+
+
+h1 {
+  color: #7c795d;
+  font-family: 'Trocchi', serif;
+  margin:auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: 32px;
+
+}
+
+h3 { color: #7c795d; font-family: 'Source Sans Pro', sans-serif; font-size: 25px; font-weight: 400; line-height: 32px; margin: 0 0 24px; }
+
+.tool-content {
+  min-width: 400px;
+  margin: auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-width:500px
+}
+
+.atom  {
+  font-size:1.4rem;
+  margin-left:0px;
+  cursor: pointer;
+  width:40px;
+}
+
+#element-table tr th {
+  text-align: left;
+  border-radius: 3px;
+}
+
+#fb {
+  margin-top: 1em;
+  display: block;
+}
+
+#feedback {
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+}
+
+.shell {
+  position:relative;
+  min-width: 300px;
+  min-height: 280px;
+  border: 2px solid #E0E0E0;
+  display: block;
+  padding:1rem;
+}
+
+.step2 {
+  display:block;
+}
+
+.spacer {
+  height: 50px;
+  margin-bottom: 7em;
+}
+
+.bottom-buttons {
+  display:block;
+  position:absolute;
+  margin-top: 15em;
+  margin-bottom: 2em;
+  width:100%;
+  margin-left: -1em;
+}
+
+#clear-btn {
+  margin-left:3em;
+}
+
+.bottom-buttons button {
+  background-color: #008CBA; 
+  border: none;
+  color: white;
+  padding: 13px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin-bottom: 5em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropBox {
+  text-align:center;
+  font-size: 1.4rem;
+  padding-top: 12px;
+  height:40px;
+  width:40px;
+  border-radius: 50%;
+  vertical-align: text-bottom;
+
+}
+
+#step2-linear, #step2-tri-planar, #step2-tetrahedral, #trigonalbi {
+  display: none;
+}
+
+
+#bond-linear-1 {
+  position:absolute;
+  margin-left:75px;
+  margin-top:57px;
+  cursor:pointer;
+  width:45px;
+}
+
+#bond-linear-2 {
+  position:absolute;
+  margin-left:183px;
+  margin-top:57px;
+  width:45px;
+  cursor:pointer;
+}
+
+#div3-linear {
+  width: 40px;
+  height: 40px;
+  border: 0px solid red;
+  margin-left: 130px;
+  margin-top: 42px;
+  position:absolute;
+  z-index: 4;
+} 
+
+#div1-linear {
+  width: 40px;
+  height: 40px;
+  border: 0px solid green;
+  margin-left: 25px;
+  margin-top: 42px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div2-linear {
+  width: 40px;
+  height: 40px;
+  border: 0px solid pink;
+  margin-left: 240px;
+  margin-top: 42px;
+  position:absolute;
+  z-index: 4;
+}
+
+#CanvasLinear3 {
+  margin-left: 115px;
+  margin-top: 30px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed #000000;
+}
+
+#CanvasLinear1 {
+  margin-left: 10px;
+  margin-top: 30px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed #000000;
+}
+
+#CanvasLinear2 {
+  margin-left: 226px;
+  margin-top: 30px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed #000000;
+}
+
+#CanvasLinear {
+  margin-left: 115px;
+  margin-top: 30px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed #000000;
+}
+
+
+.placedAtoms-linear-ele {
+  text-align:center;
+  margin-top:-10px;
+}
+
+/* Trigonal Planar Test */
+
+#tripl-sk {
+  width:280px;
+  z-index: 1;
+  margin-left: -17px;
+  margin-top: -30px;
+  position:absolute;
+  display: none;
+}
+
+#div1-tri_planar-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 101px;
+  margin-top: 10px;
+  position:absolute;
+  z-index: 4;
+} 
+
+#div3-tri_planar-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 185px;
+  margin-top: 166px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div2-tri_planar-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 18px;
+  margin-top: 166px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div5-tri_planar-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 101px;
+  margin-top: 99px;
+  position:absolute;
+  z-index: 4;
+}
+
+#bond1-tri_planar-test {
+  position:absolute;
+  margin-left:119px;
+  margin-top:57px;
+  height:39px;
+  cursor: pointer;
+}
+
+#bond2-tri_planar-test {
+  position:absolute;
+  margin-top:142px;
+  margin-left:61px;
+  width:35px;
+  cursor: pointer;
+  transform: rotate(-3deg);
+}
+
+#bond3-tri_planar-test {
+  position:absolute;
+  float:right;
+  margin-left:148px;
+  margin-top:137px;
+  width:32px;
+  height:30px;
+  cursor: pointer;
+  transform: rotate(-9deg);
+}
+
+#CanvasTri1 {
+  margin-left: 89px;
+  margin-top: -1px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTri2 {
+  margin-left: 6px;
+  margin-top: 155px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTri3 {
+  margin-left: 172px;
+  margin-top: 155px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTri4 {
+  margin-left: 89px;
+  margin-top: 88px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTri {
+  margin-left: 89px;
+  margin-top: 88px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+
+/* Tetrahedral test */
+
+#tetra-sk {
+  width:280px;
+  z-index: 1;
+  margin-left: -15px;
+  margin-top: -15px;
+  position:absolute;
+  display: none;
+  
+}
+
+#div1-tetra-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 103px;
+  margin-top: 25px;
+  position:absolute;
+  z-index: 4;
+} 
+
+#div2-tetra-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 20px;
+  margin-top: 181px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div3-tetra-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 147px;
+  margin-top: 197px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div4-tetra-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 190px;
+  margin-top: 149px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div5-tetra-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 103px;
+  margin-top: 114px;
+  position:absolute;
+  z-index: 4;
+}
+
+#bond1-tetra-test {
+  position:absolute;
+  margin-left:121px;
+  margin-top:73px;
+  height:38px;
+  cursor: pointer;
+}
+
+#bond2-tetra-test {
+  position:absolute;
+  margin-top:156px;
+  margin-left:65px;
+  width:37px;
+  cursor: pointer;
+  transform: rotate(-5deg);
+}
+
+#bond3-tetra-test {
+  position:absolute;
+  float:right;
+  margin-left:135px;
+  margin-top:159px;
+  width: 20px;
+  max-height: 35px;
+  transform: rotate(-5deg);
+}
+
+#bond4-tetra-test {
+  position:absolute;
+  float:right;
+  margin-left:149px;
+  margin-top:152px;
+  width:38px;
+  transform: rotate(6deg);
+}
+
+#CanvasTetra3 {
+  margin-left: 134px;
+  margin-top: 187px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTetra1 {
+  margin-left: 89px;
+  margin-top: 14px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed green;
+}
+
+#CanvasTetra2 {
+  margin-left: 6px;
+  margin-top: 170px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed red;
+}
+
+#CanvasTetra4 {
+  margin-left: 176px;
+  margin-top: 138px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed #000000;
+}
+
+#CanvasTetra5 {
+  margin-left: 90px;
+  margin-top: 102px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed purple;
+}
+
+#CanvasTetra {
+  margin-left: 90px;
+  margin-top: 102px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed purple;
+}
+
+/* Triagonal Bi */
+
+
+#tribi-sk {
+  width:280px;
+  z-index: 1;
+  margin-left: -17px;
+  margin-top: -17px;
+  position:absolute;
+  display: none;
+  
+
+}
+
+
+#div1-trigonalbi-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 101px;
+  margin-top: 12px;
+  position:absolute;
+  z-index: 4;
+} 
+
+#div3-trigonalbi-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 17px;
+  margin-top: 137px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div4-trigonalbi-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 101px;
+  margin-top: 190px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div5-trigonalbi-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 190px;
+  margin-top: 101px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div6-trigonalbi-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 101px;
+  margin-top: 101px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div2-trigonalbi-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 18px;
+  margin-top: 66px;
+  position:absolute;
+  z-index: 4;
+}
+
+#bond1-trigonalbi-test {
+  position:absolute;
+  margin-left:120px;
+  margin-top:58px;
+  height:40px;
+  cursor: pointer;
+}
+
+#bond3-trigonalbi-test {
+  position:absolute;
+  margin-top:128px;
+  margin-left:61px;
+  width:31px;
+  transform: rotate(7deg);
+}
+
+#bond4-trigonalbi-test {
+  position:absolute;
+  margin-left:120px;
+  margin-top:148px;
+  height:40px;
+  cursor: pointer;
+}
+
+#bond2-trigonalbi-test {
+  position:absolute;
+  margin-left:67px;
+  margin-top:94px;
+  height:30px;
+  width:30px;
+  transform: rotate(-15deg);
+}
+
+#bond5-trigonalbi-test {
+  position:absolute;
+  float:right;
+  margin-left:142px;
+  margin-top:115px;
+  width:45px;
+}
+
+#CanvasTriBi1 {
+  margin-left: 89px;
+  margin-top: 0px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTriBi2 {
+  margin-left: 6px;
+  margin-top: 54px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTriBi3 {
+  margin-left: 5px;
+  margin-top: 125px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTriBi4 {
+  margin-left: 89px;
+  margin-top: 178px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTriBi5 {
+  margin-left: 178px;
+  margin-top: 89px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTriBi6 {
+  margin-left: 89px;
+  margin-top: 89px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasTriBi {
+  margin-left: 89px;
+  margin-top: 89px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+/* Octahedral */
+
+#octahedral-sk {
+  width:280px;
+  z-index: 1;
+  margin-left: -15px;
+  margin-top: -15px;
+  position:absolute;
+  display: none;
+
+}
+
+#div1-octahedral-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 100px;
+  margin-top: 14px;
+  position:absolute;
+  z-index: 4;
+} 
+
+#div6-octahedral-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 184px;
+  margin-top: 68px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div5-octahedral-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 183px;
+  margin-top: 139px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div3-octahedral-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 17px;
+  margin-top: 139px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div4-octahedral-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 100px;
+  margin-top: 192px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div7-octahedral-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 100px;
+  margin-top: 102px;
+  position:absolute;
+  z-index: 4;
+}
+
+#div2-octahedral-test {
+  width: 42px;
+  height: 42px;
+  border: 0px solid #ddd;
+  margin-left: 17px;
+  margin-top: 68px;
+  position:absolute;
+  z-index: 4;
+}
+
+#bond1-octahedral-test {
+  position:absolute;
+  margin-left:120px;
+  margin-top:60px;
+  height:39px;
+  cursor: pointer;
+}
+
+#bond3-octahedral-test {
+  position:absolute;
+  margin-top:128px;
+  margin-left:62px;
+  width:36px;
+  transform: rotate(12deg);
+}
+
+#bond4-octahedral-test {
+  position:absolute;
+  margin-left:120px;
+  margin-top:149px;
+  height:39px;
+  cursor: pointer;
+}
+
+#bond2-octahedral-test {
+  position:absolute;
+  margin-left:67px;
+  margin-top:100px;
+  width:30px;
+  transform: rotate(-7deg);
+}
+
+#bond6-octahedral-test {
+  position:absolute;
+  float:right;
+  margin-left:145px;
+  margin-top:99px;
+  width:33px;
+  transform: rotate(3deg);
+}
+
+#bond5-octahedral-test {
+  position:absolute;
+  float:right;
+  margin-left:146px;
+  margin-top:128px;
+  width:35px;
+  transform: rotate(-11deg);
+}
+
+#CanvasOcta1 {
+  margin-left: 87px;
+  margin-top: 1px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed #000000;
+}
+
+#CanvasOcta2 {
+  margin-left: 4px;
+  margin-top: 55px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed green;
+}
+
+#CanvasOcta3 {
+  margin-left: 4px;
+  margin-top: 127px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed red;
+}
+
+#CanvasOcta4 {
+  margin-left: 87px;
+  margin-top: 179px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed pink;
+}
+
+#CanvasOcta5 {
+  margin-left: 170px;
+  margin-top: 126px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed blue;
+}
+
+#CanvasOcta6 {
+  margin-left: 169px;
+  margin-top: 55px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed purple;
+}
+
+#CanvasOcta7 {
+  margin-left: 87px;
+  margin-top: 90px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed brown;
+}
+
+#CanvasOcta {
+  margin-left: 87px;
+  margin-top: 90px;
+  position:absolute;
+  z-index: 3;
+  border:0px dashed yellow;
+}
+
+
+
+
+/* class applies to select element itself, not a wrapper element */
+.select-css {
+  display: block;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: .6em 1.4em .5em .8em;
+  width: 100%;
+  max-width: 100%; /* useful when width is set to anything other than 100% */
+  box-sizing: border-box;
+  margin-top: 1rem;
+  margin-bottom: 1.8rem;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  border-radius: .5em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
+    for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
+    
+  */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+  background-position: right .7em top 50%, 0 0;
+  /* icon size, then gradient */
+  background-size: .65em auto, 100%;
+}
+/* Hide arrow icon in IE browsers */
+.select-css::-ms-expand {
+  display: none;
+}
+/* Hover style */
+.select-css:hover {
+  border-color: #888;
+}
+/* Focus style */
+.select-css:focus {
+  border-color: #aaa;
+  /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222; 
+  outline: none;
+}
+
+/* Set options to normal weight */
+.select-css option {
+  font-weight:normal;
+}
+
+/* Support for rtl text, explicit support for Arabic and Hebrew */
+*[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+  background-position: left .7em top 50%, 0 0;
+  padding: .6em .8em .5em 1.4em;
+}
+
+/* Disabled styles */
+.select-css:disabled, .select-css[aria-disabled=true] {
+  color: graytext;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+}
+
+.select-css:disabled:hover, .select-css[aria-disabled=true] {
+  border-color: #aaa;
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #E8E8E8;
+  color: white;
+  text-align: center;
+}
+
+
+/* Style the header */
+.header {
+  padding: 10px 16px;
+  background: #E8E8E8;
+  color: #f1f1f1;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+</style>
+
+
+<script>
+$( document ).ready(function() {
+  document.getElementById("variationMol").innerHTML = molecules[rand];
+    place();
+});
+
+
+function initialize(interactiveMode){
+/*Called when the question is being initialized.
+interactiveMode:	if it is true, interaction is allowed on question.
+*/
+/*Your code starts from here:*/
+document.getElementById("variationMol").innerHTML = molecules[rand];
+place();
+};
+
+function setFeedback(response, answer){
+/*called when response or answer is going to 
+be rendered.
+response: 	student's response of question.
+answer: 	correct answer of question.*/
+/*Your code starts from here:*/
+
+};
+
+function getResponse(){
+/*called when grade button is clicked,
+to retrieve back student's response.*/
+/*Your code starts from here:*/
+
+
+
+};
+
+/*Additional functions start from here*/
+var data1 = '[{ "molecule":"CO2", "C":1, "O":2, "ePairs":0 },{ "molecule":"SF6", "S":1, "F":6, "ePairs":0 }, { "molecule":"CH4", "C":1, "H":4, "ePairs":0 }, { "molecule":"BH3", "B":1, "H":3, "ePairs":0 }, { "molecule":"PF5", "P":1, "F":5, "ePairs":0 }]';
+var selected;
+var moleculeVars = ["CO2","BH3","CH4","PF5","SF6"];
+var molecules = ["CO<sub>2</sub>","BH<sub>3</sub>","CH<sub>4</sub>","PF<sub>5</sub>","SF<sub>6</sub>"];
+var structures = ["linear","tri_planar-test","tetrahedral-test","trigonalbi-test","octahedral-test"];
+var rand = Math.floor(Math.random() * molecules.length);
+var mol = moleculeVars[rand];
+var selectedCorr = structures[rand];
+var m = JSON.parse(data1);
+var n;
+
+var countLinear=0; 
+var atom;
+var anglesLinear = [180,0];
+
+var radius = 22;
+var point_size = 2;
+var center_x = 35;
+var center_y = 34;
+var font_size = "15px";
+
+var radius1 = 30;
+var point_size1 = 2;
+var center_x1 = 35;
+var center_y1 = 34;
+var font_size1 = "15px";
+
+for (var i = 0; i < m.length; i++) {
+  if (mol==m[i].molecule) {
+    n=m[i];
+  }
+}
+
+var res = {};
+
+function place() { 
+    clearAll(selected);
+    var all = document.querySelectorAll(".step2");
+    for (var i = 0; i < all.length; i++) {
+        all[i].style.display = "none";
+    }
+    var e = document.getElementById("geometry");
+    var f = e.options[e.selectedIndex].value;
+    var id = "step2-" + f;
+    selected = f;
+    document.getElementById(id).style.display = "block";   
+}
+
+function clearAll(s) {
+
+  if (s=="linear") {
+    clearBoxesLinear();
+  }
+
+  if (s=="tri_planar-test") {
+    clearBoxesPlanarTest()
+  }
+
+  if (s=="tetrahedral-test") {
+    clearBoxesTetraTest();
+  }
+
+  if (s=="trigonalbi-test") {
+    clearBoxesTrigonalbiTest(); 
+  }
+
+  if (s=="octahedral-test") {
+    clearBoxesOctahedralTest();
+  }
+  
+  res = {};
+}
+
+/* Linear */
+
+var countLinear=0; 
+var anglesLinear = [180,0];
+
+var cLinear1;
+var cLinear2;
+var cLinear3;
+var cLinear;
+
+var ctxLinear1;
+var ctxLinear2;
+var ctxLinear3;
+var ctxLinear;
+
+jQuery(document).ready(function(){
+ cLinear1 = document.getElementById("CanvasLinear1");
+ cLinear2 = document.getElementById("CanvasLinear2");
+ cLinear3 = document.getElementById("CanvasLinear3");
+ cLinear = document.getElementById("CanvasLinear");
+ ctxLinear1 = cLinear1.getContext("2d");
+ ctxLinear1.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxLinear2 = cLinear2.getContext("2d");
+ ctxLinear2.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxLinear3 = cLinear3.getContext("2d");
+ ctxLinear3.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxLinear = cLinear.getContext("2d");
+ ctxLinear.strokeStyle = 'rgba(0,0,0,0)';
+ drawCircleLinear(); 
+});
+
+function drawCircleLinear(){
+    ctxLinear1.beginPath();
+    ctxLinear1.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxLinear1.stroke(); 
+  
+    ctxLinear2.beginPath();
+    ctxLinear2.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxLinear2.stroke(); 
+  
+    ctxLinear3.beginPath();
+    ctxLinear3.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxLinear3.stroke(); 
+
+    ctxLinear.beginPath();
+    ctxLinear.arc(center_x1, center_y1, radius1, 0, 2 * Math.PI);
+    ctxLinear.stroke(); 
+}
+
+function drawPoint(c,angle,distance,label){
+    var x = center_x + radius1 * Math.cos(-angle*Math.PI/180) * distance;
+    var y = center_y + radius1 * Math.sin(-angle*Math.PI/180) * distance;
+
+    c.beginPath();
+    c.arc(x, y, point_size, 0, 2 * Math.PI);
+    c.fill();
+
+    c.font = font_size;
+    c.fillText(label,x + 10,y);
+}
+
+function addPoints(alpha, canvas) {
+  drawPoint(canvas,alpha+7,1,"");
+  drawPoint(canvas,alpha-7,1,"");
+}
+
+function clearBoxesLinear() {
+  x = document.querySelectorAll(".dropBox");
+  for (i = 0; i < x.length; i++) {
+    x[i].innerHTML = "";
+    x[i].style.backgroundColor = "";
+    console.clear();
+  }
+  icons = document.querySelectorAll(".atom");
+  for (var i = 0; i < icons.length; i++) {
+    icons[i].style.backgroundColor = "";
+  }
+  
+  eboxes = document.querySelectorAll(".e-box");
+  for (var i = 0; i < eboxes.length; i++) {
+    eboxes[i].innerHTML = "";
+  }
+
+  var bonds = document.querySelectorAll(".bond");
+  for (var i = 0; i < bonds.length; i++) {
+    bonds[i].style.visibility = "visible";
+  }
+
+  document.getElementById("bond-linear-1").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png";
+  document.getElementById("bond-linear-2").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png";
+
+  ctxLinear1.clearRect(0, 0, cLinear1.width, cLinear1.height);
+  ctxLinear2.clearRect(0, 0, cLinear2.width, cLinear2.height);
+  ctxLinear3.clearRect(0, 0, cLinear3.width, cLinear3.height);
+  ctxLinear.clearRect(0, 0, cLinear.width, cLinear.height);
+
+  countLinear=anglesLinear== 0;
+  atom="";
+  document.getElementById("feedback").innerHTML = "&nbsp;";
+  res = {};
+  drawCircleLinear();
+}
+
+function submitAnswerLinear() { 
+  res["molecule"]=mol;
+  res["ePairs"]=countLinear;
+  var boxes = document.querySelectorAll(".linear-box");
+  for (var i = 0; i < boxes.length; i++) {
+    var b = boxes[i].innerHTML;
+    if (res[b] == null) {
+        res[b]=1;
+      }
+    else {
+      res[b]=res[b]+1;
+    }
+  }
+  var fb = document.getElementById("feedback");
+  console.log(n);
+  console.log(res);
+  
+  if (isEquivalent(n, res) && selectedCorr==selected) {
+    fb.innerHTML = "Correct!";
+  }
+  
+  else {
+    fb.innerHTML = "Incorrect";
+  }
+
+}
+
+function isEquivalent(a, b) {
+    var aProps = Object.getOwnPropertyNames(a);
+    var bProps = Object.getOwnPropertyNames(b);
+
+    if (aProps.length != bProps.length) {
+        return false;
+    }
+
+    for (var i = 0; i < aProps.length; i++) {
+        var propName = aProps[i];
+
+        if (a[propName] !== b[propName]) {
+            return false;
+        }
+    }
+
+    return true;
+    
+}
+
+function changeImage(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-linear-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-1.png"];
+  var l = s.length;
+  var t = s.substring(31,l);
+  var i = srcs.indexOf(t);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
+}
+
+
+/* Tetra */
+
+var countTetra=0;
+var anglesTetra = [90,220,300,-20];
+
+function clearBoxesTetraTest() {
+  var res = {};
+  var x = document.querySelectorAll(".dropBox");
+  for (i = 0; i < x.length; i++) {
+    x[i].innerHTML = "";
+    x[i].style.backgroundColor = "";
+    x[i].style.visibility = "visible";
+    console.clear();
+  }
+  var icons = document.querySelectorAll(".atom");
+  for (var i = 0; i < icons.length; i++) {
+    icons[i].style.backgroundColor = "";
+  }
+  
+  var eboxes = document.querySelectorAll(".e-box");
+  for (var i = 0; i < eboxes.length; i++) {
+    eboxes[i].innerHTML = "";
+  }
+
+  var bonds = document.querySelectorAll(".bond");
+  for (var i = 0; i < bonds.length; i++) {
+    bonds[i].style.visibility = "visible";
+  }
+
+  document.getElementById("bond1-tetra-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+  document.getElementById("bond2-tetra-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png";
+
+  ctxTetra1.clearRect(0, 0, cTetra1.width, cTetra1.height);
+  ctxTetra2.clearRect(0, 0, cTetra2.width, cTetra2.height);
+  ctxTetra3.clearRect(0, 0, cTetra3.width, cTetra3.height);
+  ctxTetra4.clearRect(0, 0, cTetra4.width, cTetra4.height);
+  ctxTetra5.clearRect(0, 0, cTetra5.width, cTetra5.height);
+  ctxTetra.clearRect(0, 0, cTetra.width, cTetra.height);
+  countTetra=alphaTetra=0;
+  atom="";
+  document.getElementById("feedback").innerHTML = "&nbsp;";
+  res = {};
+  drawCircle();
+}
+
+function submitAnswerTetra() { 
+  res["molecule"]=mol;
+  res["ePairs"]=countTetra;
+  var boxes = document.querySelectorAll(".tetra-box");
+  for (var i = 0; i < boxes.length; i++) {
+    var b = boxes[i].innerHTML;
+    if (res[b] == null) {
+        res[b]=1;
+      }
+    else {
+      res[b]=res[b]+1;
+    }
+  }
+
+  var fb = document.getElementById("feedback");
+  
+  if (isEquivalent(n, res) && selectedCorr==selected) {
+    fb.innerHTML = "Correct!";
+  }
+  
+  else {
+    fb.innerHTML = "Incorrect";
+  }
+
+}
+
+
+var cTetra1;
+var cTetra2;
+var cTetra3;
+var cTetra4;
+var cTetra5;
+var cTetra;
+var ctxTetra1;
+var ctxTetra2;
+var ctxTetra3;
+var ctxTetra4;
+var ctxTetra5;
+var ctxTetra;
+
+
+jQuery(document).ready(function(){
+ cTetra1 = document.getElementById("CanvasTetra1");
+ cTetra2 = document.getElementById("CanvasTetra2");
+ cTetra3 = document.getElementById("CanvasTetra3");
+ cTetra4 = document.getElementById("CanvasTetra4");
+ cTetra5 = document.getElementById("CanvasTetra5");
+ cTetra = document.getElementById("CanvasTetra");
+ ctxTetra1 = cTetra1.getContext("2d");
+ ctxTetra2 = cTetra2.getContext("2d");
+ ctxTetra3 = cTetra3.getContext("2d");
+ ctxTetra4 = cTetra4.getContext("2d");
+ ctxTetra5 = cTetra5.getContext("2d");
+ ctxTetra = cTetra.getContext("2d");
+ ctxTetra1.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTetra2.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTetra3.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTetra4.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTetra5.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTetra.strokeStyle = 'rgba(0,0,0,0)';
+ drawCircle(); 
+});
+
+
+function drawCircle(){
+  
+    ctxTetra1.beginPath();
+    ctxTetra1.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxTetra1.stroke();
+
+    ctxTetra2.beginPath();
+    ctxTetra2.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxTetra2.stroke();
+  
+    ctxTetra3.beginPath();
+    ctxTetra3.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxTetra3.stroke(); 
+
+    ctxTetra4.beginPath();
+    ctxTetra4.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxTetra4.stroke(); 
+
+    ctxTetra5.beginPath();
+    ctxTetra5.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxTetra5.stroke();
+    
+    ctxTetra.beginPath();
+    ctxTetra.arc(center_x1, center_y1, radius1, 0, 2 * Math.PI);
+    ctxTetra.stroke();
+}
+
+
+/* Tri Planar */
+
+var countTri=0;
+var anglesTri = [90,225,315];
+
+function clearBoxesPlanarTest() {
+  var res = {};
+  var x = document.querySelectorAll(".dropBox");
+  for (i = 0; i < x.length; i++) {
+    x[i].innerHTML = "";
+    x[i].style.backgroundColor = "";
+    x[i].style.visibility = "visible";
+    console.clear();
+  }
+  var icons = document.querySelectorAll(".atom");
+  for (var i = 0; i < icons.length; i++) {
+    icons[i].style.backgroundColor = "";
+  }
+  
+  var eboxes = document.querySelectorAll(".e-box");
+  for (var i = 0; i < eboxes.length; i++) {
+    eboxes[i].innerHTML = "";
+  }
+
+  var bonds = document.querySelectorAll(".bond");
+  for (var i = 0; i < bonds.length; i++) {
+    bonds[i].style.visibility = "visible";
+  }
+
+  document.getElementById("bond1-tri_planar-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+  document.getElementById("bond2-tri_planar-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png";
+  document.getElementById("bond3-tri_planar-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png";
+
+  ctxTri1.clearRect(0, 0, cTri1.width, cTri1.height);
+  ctxTri2.clearRect(0, 0, cTri2.width, cTri2.height);
+  ctxTri3.clearRect(0, 0, cTri3.width, cTri3.height);
+  ctxTri4.clearRect(0, 0, cTri4.width, cTri4.height);
+  ctxTri.clearRect(0, 0, cTri.width, cTri.height);
+  countTri=alphaTri=0;
+  atom="";
+  document.getElementById("feedback").innerHTML = "&nbsp;";
+  drawCircleTri();
+}
+
+
+function submitAnswerPlanar() { 
+  res["molecule"]=mol;
+  res["ePairs"]=countTri;
+  var boxes = document.querySelectorAll(".tri_planar-box");
+  for (var i = 0; i < boxes.length; i++) {
+    var b = boxes[i].innerHTML;
+    if (res[b] == null) {
+        res[b]=1;
+      }
+    else {
+      res[b]=res[b]+1;
+    }
+  }
+
+  var fb = document.getElementById("feedback");
+  
+  if (isEquivalent(n, res) && selectedCorr==selected) {
+    fb.innerHTML = "Correct!";
+  }
+  
+  else {
+    fb.innerHTML = "Incorrect";
+  }
+}
+
+
+
+var cTri1;
+var cTri2;
+var cTri3;
+var cTri4;
+var cTri;
+
+var ctxTri1;
+var ctxTri2;
+var ctxTri3;
+var ctxTri4;
+var ctxTri;
+
+
+jQuery(document).ready(function(){
+ cTri1 = document.getElementById("CanvasTri1");
+ cTri2 = document.getElementById("CanvasTri2");
+ cTri3 = document.getElementById("CanvasTri3");
+ cTri4 = document.getElementById("CanvasTri4");
+ cTri = document.getElementById("CanvasTri");
+
+ ctxTri1 = cTri1.getContext("2d");
+ ctxTri2 = cTri2.getContext("2d");
+ ctxTri3 = cTri3.getContext("2d");
+ ctxTri4 = cTri4.getContext("2d");
+ ctxTri = cTri.getContext("2d");
+
+ ctxTri1.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTri2.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTri3.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTri4.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTri.strokeStyle = 'rgba(0,0,0,0)';
+ drawCircleTri(); 
+});
+
+
+function drawCircleTri(){
+    ctxTri1.beginPath();
+    ctxTri1.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxTri1.stroke();
+
+    ctxTri2.beginPath();
+    ctxTri2.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxTri2.stroke();
+
+    ctxTri3.beginPath();
+    ctxTri3.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxTri3.stroke();
+
+    ctxTri4.beginPath();
+    ctxTri4.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxTri4.stroke();
+
+    ctxTri.beginPath();
+    ctxTri.arc(center_x1, center_y1, radius1, 0, 2 * Math.PI);
+    ctxTri.stroke(); 
+}
+
+
+function changeImageTriPl1(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-2.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-2.png"];
+  var l = s.length;
+  var t = s.substring(31,l);
+  var i = srcs.indexOf(t);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
+}
+
+function changeImageTriPl2(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-2.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-3.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-3.png"];
+  var l = s.length;
+  var t = s.substring(31,l);
+  var i = srcs.indexOf(t);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
+}
+
+function changeImageTriPl3(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-5.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-4.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-4.png"];
+  var l = s.length;
+  var t = s.substring(31,l);
+  var i = srcs.indexOf(t);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
+}
+
+/* Tri Bi */
+
+var countTriBi=0;
+var anglesTriBi = [90,135,225,270,0];
+
+function clearBoxesTrigonalbiTest() {
+  var res = {};
+  var x = document.querySelectorAll(".dropBox");
+  for (i = 0; i < x.length; i++) {
+    x[i].innerHTML = "";
+    x[i].style.backgroundColor = "";
+    x[i].style.visibility = "visible";
+    console.clear();
+  }
+  var icons = document.querySelectorAll(".atom");
+  for (var i = 0; i < icons.length; i++) {
+    icons[i].style.backgroundColor = "";
+  }
+  
+  var eboxes = document.querySelectorAll(".e-box");
+  for (var i = 0; i < eboxes.length; i++) {
+    eboxes[i].innerHTML = "";
+  }
+
+  var bonds = document.querySelectorAll(".bond");
+  for (var i = 0; i < bonds.length; i++) {
+    bonds[i].style.visibility = "visible";
+  }
+
+  document.getElementById("bond1-trigonalbi-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+  document.getElementById("bond4-trigonalbi-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+
+  ctxTriBi1.clearRect(0, 0, cTriBi1.width, cTriBi1.height);
+  ctxTriBi2.clearRect(0, 0, cTriBi2.width, cTriBi2.height);
+  ctxTriBi3.clearRect(0, 0, cTriBi3.width, cTriBi3.height);
+  ctxTriBi4.clearRect(0, 0, cTriBi4.width, cTriBi4.height);
+  ctxTriBi5.clearRect(0, 0, cTriBi5.width, cTriBi5.height);
+  ctxTriBi6.clearRect(0, 0, cTriBi6.width, cTriBi6.height);
+  ctxTriBi.clearRect(0, 0, cTriBi.width, cTriBi.height);
+  countTriBi=alphaTriBi=0;
+  atom="";
+  document.getElementById("feedback").innerHTML = "&nbsp;";
+  drawCircleTriBi();
+}
+
+function submitAnswerTrigonalbiTest() { 
+  res["molecule"]=mol;
+  res["ePairs"]=countTriBi;
+  var boxes = document.querySelectorAll(".trigonalbi-box");
+  for (var i = 0; i < boxes.length; i++) {
+    var b = boxes[i].innerHTML;
+    if (res[b] == null) {
+        res[b]=1;
+      }
+    else {
+      res[b]=res[b]+1;
+    }
+  }
+  var fb = document.getElementById("feedback");
+  
+  if (isEquivalent(n, res) && selectedCorr==selected) {
+    fb.innerHTML = "Correct!";
+  }
+  
+  else {
+    fb.innerHTML = "Incorrect";
+  }
+}
+
+var cTriBi1;
+var cTriBi2;
+var cTriBi3;
+var cTriBi4;
+var cTriBi5;
+var cTriBi6;
+var cTriBi;
+var ctxTriBi1;
+var ctxTriBi2;
+var ctxTriBi3;
+var ctxTriBi4;
+var ctxTriBi5;
+var ctxTriBi6;
+var ctxTriBi;
+
+jQuery(document).ready(function(){
+ cTriBi1 = document.getElementById("CanvasTriBi1");
+ cTriBi2 = document.getElementById("CanvasTriBi2");
+ cTriBi3 = document.getElementById("CanvasTriBi3");
+ cTriBi4 = document.getElementById("CanvasTriBi4");
+ cTriBi5 = document.getElementById("CanvasTriBi5");
+ cTriBi6 = document.getElementById("CanvasTriBi6");
+ cTriBi = document.getElementById("CanvasTriBi");
+ ctxTriBi1 = cTriBi1.getContext("2d");
+ ctxTriBi2 = cTriBi2.getContext("2d");
+ ctxTriBi3 = cTriBi3.getContext("2d");
+ ctxTriBi4 = cTriBi4.getContext("2d");
+ ctxTriBi5 = cTriBi5.getContext("2d");
+ ctxTriBi6 = cTriBi6.getContext("2d");
+ ctxTriBi = cTriBi.getContext("2d");
+ ctxTriBi1.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTriBi2.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTriBi3.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTriBi4.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTriBi5.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTriBi6.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxTriBi.strokeStyle = 'rgba(0,0,0,0)';
+ drawCircleTriBi(); 
+});
+
+function drawCircleTriBi(){
+  ctxTriBi1.beginPath();
+  ctxTriBi1.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+  ctxTriBi1.stroke();
+
+  ctxTriBi2.beginPath();
+  ctxTriBi2.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+  ctxTriBi2.stroke();
+
+  ctxTriBi3.beginPath();
+  ctxTriBi3.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+  ctxTriBi3.stroke();
+
+  ctxTriBi4.beginPath();
+  ctxTriBi4.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+  ctxTriBi4.stroke();
+
+  ctxTriBi5.beginPath();
+  ctxTriBi5.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+  ctxTriBi5.stroke();
+
+  ctxTriBi6.beginPath();
+  ctxTriBi6.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+  ctxTriBi6.stroke();
+
+  ctxTriBi.beginPath();
+  ctxTriBi.arc(center_x1, center_y1, radius1, 0, 2 * Math.PI);
+  ctxTriBi.stroke(); 
+}
+
+function changeImageTriBi(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-2.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-2.png"];
+  var l = s.length;
+  var t = s.substring(31,l);
+  var i = srcs.indexOf(t);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
+}
+
+/* Octahedral */
+
+var countOcta=0;
+var anglesOcta = [90,135,225,270,-45,45];
+
+function clearBoxesOctahedralTest() {
+  var res = {};
+  var x = document.querySelectorAll(".dropBox");
+  for (i = 0; i < x.length; i++) {
+    x[i].innerHTML = "";
+    x[i].style.backgroundColor = "";
+    x[i].style.visibility = "visible";
+    console.clear();
+  }
+  var icons = document.querySelectorAll(".atom");
+  for (var i = 0; i < icons.length; i++) {
+    icons[i].style.backgroundColor = "";
+  }
+  
+  var eboxes = document.querySelectorAll(".e-box");
+  for (var i = 0; i < eboxes.length; i++) {
+    eboxes[i].innerHTML = "";
+  }
+
+  var bonds = document.querySelectorAll(".bond");
+  for (var i = 0; i < bonds.length; i++) {
+    bonds[i].style.visibility = "visible";
+  }
+
+  document.getElementById("bond1-octahedral-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+  document.getElementById("bond4-octahedral-test").src = "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png";
+ 
+  ctxOcta1.clearRect(0, 0, cOcta1.width, cOcta1.height);
+  ctxOcta2.clearRect(0, 0, cOcta2.width, cOcta2.height);
+  ctxOcta3.clearRect(0, 0, cOcta3.width, cOcta3.height);
+  ctxOcta4.clearRect(0, 0, cOcta4.width, cOcta4.height);
+  ctxOcta5.clearRect(0, 0, cOcta5.width, cOcta5.height);
+  ctxOcta6.clearRect(0, 0, cOcta6.width, cOcta6.height);
+  ctxOcta7.clearRect(0, 0, cOcta7.width, cOcta7.height);
+  ctxOcta.clearRect(0, 0, cOcta.width, cOcta.height);
+  
+  countOcta=alphaOcta=0;
+  atom="";
+  document.getElementById("feedback").innerHTML = "&nbsp;";
+  drawCircleOcta();
+}
+
+function submitAnswerOctahedralTest() { 
+  res["molecule"]=mol;
+  res["ePairs"]=countOcta;
+  var boxes = document.querySelectorAll(".octahedral-box");
+  for (var i = 0; i < boxes.length; i++) {
+    var b = boxes[i].innerHTML;
+    if (res[b] == null) {
+        res[b]=1;
+      }
+    else {
+      res[b]=res[b]+1;
+    }
+  }
+
+  var fb = document.getElementById("feedback");
+  
+  if (isEquivalent(n, res) && selectedCorr==selected) {
+    fb.innerHTML = "Correct!";
+  }
+  
+  else {
+    fb.innerHTML = "Incorrect";
+  }
+}
+
+var cOcta1;
+var cOcta2;
+var cOcta3;
+var cOcta4;
+var cOcta5;
+var cOcta6;
+var cOcta7;
+var cOcta;
+
+var ctxOcta1;
+var ctxOcta2;
+var ctxOcta3;
+var ctxOcta4;
+var ctxOcta5;
+var ctxOcta6;
+var ctxOcta7;
+var ctxOcta;
+
+jQuery(document).ready(function(){
+    
+ cOcta1 = document.getElementById("CanvasOcta1");
+ cOcta2 = document.getElementById("CanvasOcta2");
+ cOcta3 = document.getElementById("CanvasOcta3");
+ cOcta4 = document.getElementById("CanvasOcta4");
+ cOcta5 = document.getElementById("CanvasOcta5");
+ cOcta6 = document.getElementById("CanvasOcta6");
+ cOcta7 = document.getElementById("CanvasOcta7");
+ cOcta = document.getElementById("CanvasOcta");
+
+ ctxOcta1 = cOcta1.getContext("2d");
+ ctxOcta2 = cOcta2.getContext("2d");
+ ctxOcta3 = cOcta3.getContext("2d");
+ ctxOcta4 = cOcta4.getContext("2d");
+ ctxOcta5 = cOcta5.getContext("2d");
+ ctxOcta6 = cOcta6.getContext("2d");
+ ctxOcta7 = cOcta7.getContext("2d");
+ ctxOcta = cOcta.getContext("2d");
+ 
+ ctxOcta1.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxOcta2.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxOcta3.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxOcta4.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxOcta5.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxOcta6.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxOcta7.strokeStyle = 'rgba(0,0,0,0.7)';
+ ctxOcta.strokeStyle = 'rgba(0,0,0,0)';
+ drawCircleOcta(); 
+});
+
+function drawCircleOcta(){
+
+    ctxOcta1.beginPath();
+    ctxOcta1.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta1.stroke();
+
+    ctxOcta2.beginPath();
+    ctxOcta2.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta2.stroke();
+
+    ctxOcta3.beginPath();
+    ctxOcta3.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta3.stroke();
+
+    ctxOcta4.beginPath();
+    ctxOcta4.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta4.stroke();
+
+    ctxOcta5.beginPath();
+    ctxOcta5.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta5.stroke();
+
+    ctxOcta6.beginPath();
+    ctxOcta6.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta6.stroke();
+
+    ctxOcta7.beginPath();
+    ctxOcta7.arc(center_x, center_y, radius, 0, 2 * Math.PI);
+    ctxOcta7.stroke();
+
+    ctxOcta.beginPath();
+    ctxOcta.arc(center_x1, center_y1, radius1, 0, 2 * Math.PI);
+    ctxOcta.stroke();
+}
+
+
+function changeImageOct(element) {
+  var s = element.src;
+  var srcs = ["https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/bond-1.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/double-2.png", "https://van-griner.mobius.cloud/web/Htmlc000/Public_Html/chemTool/triple-2.png"];
+  var l = s.length;
+  var t = s.substring(31,l);
+  var i = srcs.indexOf(t);
+  if (i<2) {
+  element.src=srcs[i+1];
+  } 
+  else {
+    element.src=srcs[0]; 
+  }
+}
+
+
+
+/* Other */
+
+function refreshPage(){
+  window.location.reload();
+} 
+
+function reply_click(clicked_id) {
+    atom = clicked_id;
+    icons = document.querySelectorAll(".atom");
+    for (var i = 0; i < icons.length; i++) {
+     icons[i].style.backgroundColor = ""; 
+    }
+    
+    document.getElementById(atom).style.backgroundColor = "#FBFB92";
+    
+    x = document.querySelectorAll(".dropBox");
+    for (i = 0; i < x.length; i++) {
+     x[i].style.backgroundColor = "";
+     x[i].style.cursor = "pointer";
+    }
+    
+    jQuery(".dropBox").click(function(e){
+  
+    e.stopImmediatePropagation(); 
+   
+     var target_box = this.id;
+     var div_id = target_box.substring(0, 4);
+
+      if (atom !== "pair") {
+        document.getElementById(target_box).innerHTML = atom;
+      }
+    
+    if (atom === "pair") {
+
+    if (selected=="linear") {
+
+      document.getElementById(target_box).innerHTML = "&#183;&#183;";
+      var div_id_new = "bond-linear-"+div_id[3];
+      var bondid = div_id_new.replace("div", "bond");
+      document.getElementById(bondid).style.visibility ="hidden";
+      document.getElementById(div_id+"-linear").style.visibility ="hidden";
+
+      var n = div_id[3];
+      var ob = "ctxLinear"+n.toString();
+      var ob1 = "cLinear"+n.toString();
+      var cx = eval(ob);
+      var c = eval(ob1);
+      
+      cx.clearRect(0, 0, c.width, c.height);
+
+      var numStr = div_id.replace("div","");
+      var num = parseInt(numStr);
+
+      addPoints(anglesLinear[num-1], ctxLinear);
+      countLinear += 1;
+    }
+
+      else if (selected=="tetrahedral-test") {
+        document.getElementById(target_box).innerHTML = "&#183;&#183;";
+        var div_id_new = div_id+"-tetra-test";
+        var bondid = div_id_new.replace("div", "bond");
+        document.getElementById(bondid).style.visibility ="hidden";
+        document.getElementById(div_id+"-tetra-test").style.visibility ="hidden";
+
+        var n = div_id[3];
+        var ob = "ctxTetra"+n.toString();
+        var ob1 = "cTetra"+n.toString();
+        var cx = eval(ob);
+        var c = eval(ob1);
+        
+        cx.clearRect(0, 0, c.width, c.height);
+
+        var numStr = div_id.replace("div","");
+        var num = parseInt(numStr);
+
+        addPoints(anglesTetra[num-1], ctxTetra);
+        countTetra += 1;
+      }
+
+      else if (selected=="tri_planar-test") {
+        document.getElementById(target_box).innerHTML = "&#183;&#183;";
+        var div_id_new = div_id+"-tri_planar-test";
+        var bondid = div_id_new.replace("div", "bond");
+        document.getElementById(bondid).style.visibility ="hidden";
+        document.getElementById(div_id+"-tri_planar-test").style.visibility ="hidden";
+
+        var n = div_id[3];
+        var ob = "ctxTri"+n.toString();
+        var ob1 = "cTri"+n.toString();
+        var cx = eval(ob);
+        var c = eval(ob1);
+        
+        cx.clearRect(0, 0, c.width, c.height);
+
+        var numStr = div_id.replace("div","");
+        var num = parseInt(numStr);
+
+        addPoints(anglesTri[num-1], ctxTri);
+        countTri += 1;
+      }
+
+      else if (selected=="trigonalbi-test") {
+        document.getElementById(target_box).innerHTML = "&#183;&#183;";
+        var div_id_new = div_id+"-trigonalbi-test";
+        var bondid = div_id_new.replace("div", "bond");
+        document.getElementById(bondid).style.visibility ="hidden";
+        document.getElementById(div_id+"-trigonalbi-test").style.visibility ="hidden";
+
+        var n = div_id[3];
+        var ob = "ctxTriBi"+n.toString();
+        var ob1 = "cTriBi"+n.toString();
+        var cx = eval(ob);
+        var c = eval(ob1);
+        
+        cx.clearRect(0, 0, c.width, c.height);
+
+        var numStr = div_id.replace("div","");
+        var num = parseInt(numStr);
+
+        addPoints(anglesTriBi[num-1], ctxTriBi);
+        countTriBi += 1;
+      }
+
+      else if (selected=="octahedral-test") {
+        document.getElementById(target_box).innerHTML = "&#183;&#183;";
+        var div_id_new = div_id+"-octahedral-test";
+        var bondid = div_id_new.replace("div", "bond");
+        document.getElementById(bondid).style.visibility ="hidden";
+        document.getElementById(div_id+"-octahedral-test").style.visibility ="hidden";
+
+        var n = div_id[3];
+        var ob = "ctxOcta"+n.toString();
+        var ob1 = "cOcta"+n.toString();
+        var cx = eval(ob);
+        var c = eval(ob1);
+        
+
+        cx.clearRect(0, 0, c.width, c.height);
+
+        var numStr = div_id.replace("div","");
+        var num = parseInt(numStr);
+
+        addPoints(anglesOcta[num-1], ctxOcta);
+        countOcta += 1;
+      }
+
+    }  
+    
+  });
+    
+    
+}
+
+</script>
