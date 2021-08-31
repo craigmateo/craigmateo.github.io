@@ -178,7 +178,10 @@ jQuery("#element-table button").click(function(){
   function submit() {
     atomList=[];
     res["structure"]=currentMolecule;
+    // get atoms and add results to res object
     var atoms = document.querySelectorAll("."+currentMolecule+"-atom");
+    var centreAtom = atoms[0].innerHTML;
+    res["center-atom"] = centreAtom;
     for(var i = 0; i < atoms.length; i++){
       var a = atoms[i].innerHTML;
       if (res.hasOwnProperty(a)) {
@@ -187,10 +190,15 @@ jQuery("#element-table button").click(function(){
       else {
         res[a]=1;
       }
-
     }
+
     console.log(res);
 
-
-
+    var pairs = document.querySelectorAll("."+currentMolecule + "-dot");
+    console.log(pairs.length, "."+currentMolecule + "-dot");
+    for(var j = 0; j < pairs.length; j++){
+      console.log(pairs[j].getAttribute("style"));
+         
+    }
+  
   }
