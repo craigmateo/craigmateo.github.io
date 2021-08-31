@@ -11,8 +11,6 @@ document.getElementById("variationMol").innerHTML = molecules[rand];
 var m = JSON.parse(data);
 var n;
 
-console.log(m);
-
 // get corresponding JSON data
 
 for (var i = 0; i < m.length; i++) {
@@ -60,15 +58,11 @@ jQuery("#element-table button").click(function(){
      target_box = this.id;
      target_box = target_box.match(/(\d+)/);
      target_box = parseFloat(target_box[0]);
-     console.log(target_box);
-     console.log("#" + currentMolecule + " p");
       if (atom != "pair") {
-        console.log(target_box);
+
         document.querySelectorAll("#" + currentMolecule + " p")[target_box - 1].innerHTML = atom;
       }
       else if(atom == "pair" && target_box != 1) {
-
-        console.log(document.querySelectorAll("#" + currentMolecule + ' #legs > g'));
 
         document.querySelectorAll("#" + currentMolecule + ' #legs > g')[target_box - 2].style.display = 'none';
         document.querySelectorAll("#" + currentMolecule + " p")[target_box - 1].style.display = 'none';
@@ -169,7 +163,6 @@ jQuery("#element-table button").click(function(){
       molecules[i].style.display = 'none';
     }
     currentMolecule = value;
-    console.log(currentMolecule);
     document.getElementById(value).style.display = 'block';
 
   }
@@ -184,21 +177,62 @@ jQuery("#element-table button").click(function(){
     res["center-atom"] = centreAtom;
     for(var i = 0; i < atoms.length; i++){
       var a = atoms[i].innerHTML;
-      if (res.hasOwnProperty(a)) {
-        res[a]+=1;
-      }
-      else {
-        res[a]=1;
+      if (a.length >0) {
+        if (res.hasOwnProperty(a)) {
+          res[a]+=1;
+        }
+        else {
+          res[a]=1;
+        }
       }
     }
 
-    console.log(res);
+    res["ePairs"]=0;
 
     var pairs = document.querySelectorAll("."+currentMolecule + "-dot");
-    console.log(pairs.length, "."+currentMolecule + "-dot");
     for(var j = 0; j < pairs.length; j++){
-      console.log(pairs[j].getAttribute("style"));
+      var s = pairs[j].getAttribute("style");
+      if (s !== null) {
+        res["ePairs"]+=1;
+      }
          
     }
+
+    console.log(n);
+    console.log(res);
+    console.log(isEquivalent(n,res));
   
   }
+
+
+
+  /*
+check is structures match
+*/
+
+function isEquivalent(a, b) {
+  // Create arrays of property names
+  var aProps = Object.getOwnPropertyNames(a);
+  var bProps = Object.getOwnPropertyNames(b);
+
+  // If number of properties is different,
+  // objects are not equivalent
+  if (aProps.length != bProps.length) {
+      return false;
+  }
+
+  for (var i = 0; i < aProps.length; i++) {
+      var propName = aProps[i];
+
+      // If values of same property are not equal,
+      // objects are not equivalent
+      if (a[propName] !== b[propName]) {
+          return false;
+      }
+  }
+
+  // If we made it this far, objects
+  // are considered equivalent
+  return true;
+  
+}
