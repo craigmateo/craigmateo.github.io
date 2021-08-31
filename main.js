@@ -1,8 +1,36 @@
+var data = '[{ "molecule":"CO2", "C":1, "O":2, "ePairs":0 },{ "molecule":"SF6", "S":1, "F":6, "ePairs":0 }, { "molecule":"CH4", "C":1, "H":4, "ePairs":0 }, { "molecule":"BH3", "structure":"tri-planar", "B":1, "H":3, "ePairs":0, "center-atom":"B"}, { "molecule":"PF5", "P":1, "F":5, "ePairs":0 }]';
+var res = {};
+var selected;
+var moleculeVars = ["CO2","BH3","CH4","PF5","SF6"];
+var molecules = ["CO<sub>2</sub>","BH<sub>3</sub>","CH<sub>4</sub>","PF<sub>5</sub>","SF<sub>6</sub>"];
+var structures = ["linear","tri_planar-test","tetrahedral-test","trigonalbi-test","octahedral-test"];
+var rand = Math.floor(Math.random() * molecules.length);
+var mol = moleculeVars[rand];
+var selectedCorr = structures[rand];
+document.getElementById("variationMol").innerHTML = molecules[rand];
+var m = JSON.parse(data);
+var n;
+
+console.log(m);
+
+// get corresponding JSON data
+
+for (var i = 0; i < m.length; i++) {
+  if (mol==m[i].molecule) {
+    n=m[i];
+  }
+}
+
+
+function refreshPage(){
+  window.location.reload();
+} 
+
 
 var atom = ' ';
 var target_box;
 
-var currentMolecule = 'tri-planar';
+var currentMolecule = 'tri-bi';
 
 displayMolecule(currentMolecule);
 
@@ -29,9 +57,6 @@ jQuery("#element-table button").click(function(){
 /* Runs everytime the molecule placeholders are pressed (aka the big circles) */
 
   jQuery(".step2 p").click(function(e){
-
-
-
      target_box = this.id;
      target_box = target_box.match(/(\d+)/);
      target_box = parseFloat(target_box[0]);
@@ -146,5 +171,26 @@ jQuery("#element-table button").click(function(){
     currentMolecule = value;
     console.log(currentMolecule);
     document.getElementById(value).style.display = 'block';
+
+  }
+
+
+  function submit() {
+    atomList=[];
+    res["structure"]=currentMolecule;
+    var atoms = document.querySelectorAll("."+currentMolecule+"-atom");
+    for(var i = 0; i < atoms.length; i++){
+      var a = atoms[i].innerHTML;
+      if (res.hasOwnProperty(a)) {
+        res[a]+=1;
+      }
+      else {
+        res[a]=1;
+      }
+
+    }
+    console.log(res);
+
+
 
   }

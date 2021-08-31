@@ -23,8 +23,8 @@ p, body, td {
 }
 
 h1 {
-  color: #7c795d;
-  font-family: 'Trocchi', serif;
+  color: #f1f1f1;
+  font-family: 'Source Sans Pro', sans-serif;
   margin:auto;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -32,7 +32,7 @@ h1 {
 
 }
 
-h3 { color: #7c795d; font-family: 'Source Sans Pro', sans-serif; font-size: 28px; font-weight: 400; line-height: 32px; margin: 0 0 24px; }
+h3 { color: #000080; font-family: 'Source Sans Pro', sans-serif; font-size: 28px; font-weight: 400; line-height: 32px; margin: 0 0 24px; }
 
 .content {
   max-width: 800px;
@@ -65,6 +65,9 @@ table {
 .shell {
   display: flex;
   justify-content: center;
+  border: 1px solid #000080;
+  border-radius: 8px;
+  margin-top: 2rem;
 }
 
 .step2 {
@@ -87,24 +90,18 @@ table {
 }
 
 
-
-.spacer {
-  height: 50px;
-  margin-bottom: 7em;
-}
-
 .bottom-buttons {
   display:block;
-  position:absolute;
-  margin-top: 8.4em;
+  margin-top: 2.4em;
   margin-bottom: 2em;
-  width:100%;
-  margin-left: -1em;
+  max-width: 800px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#clear-btn {
-  margin-left:3em;
-}
+
 
 .bottom-buttons button {
   background-color: #008CBA;
@@ -118,6 +115,7 @@ table {
   margin-bottom: 5em;
   border-radius: 4px;
   cursor: pointer;
+  margin-left:5px;
 }
 
 .dropBox {
@@ -206,21 +204,25 @@ table {
 }
 
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+footer {
   width: 100%;
-  background-color: #E8E8E8;
-  color: white;
+  background-color: #008CBA;
   text-align: center;
+  clear: both;
+  position: relative;
+  height: 50px;
+  margin-bottom: -32px;
 }
 
-
+footer > p {
+  color: #f1f1f1;
+  font-size: 80%;
+  padding-top: 0.6rem;
+}
 /* Style the header */
 .header {
   padding: 10px 16px;
-  background: #E8E8E8;
+  background: #008CBA;;
   color: #f1f1f1;
 }
 
