@@ -169,6 +169,16 @@ jQuery("#element-table button").click(function(){
 
   }
 
+  function clear() {
+    console.log("clear");
+    var atoms = document.querySelectorAll("."+currentMolecule+"-atom");
+    for(var i = 0; i < atoms.length; i++){
+      console.log(atoms[i]);
+      atoms[i].innerHTML = "";
+    }
+
+  }
+
 
   function submit() {
     atomList=[];
