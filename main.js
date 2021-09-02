@@ -169,12 +169,30 @@ jQuery("#element-table button").click(function(){
 
   }
 
-  function clear() {
-    console.log("clear");
+  function clearCanvas() {
+
     var atoms = document.querySelectorAll("."+currentMolecule+"-atom");
     for(var i = 0; i < atoms.length; i++){
-      console.log(atoms[i]);
       atoms[i].innerHTML = "";
+    }
+    var dots = document.querySelectorAll("#" + currentMolecule + ' #dots > g')
+    for(var i = 0; i < dots.length; i++){
+      dots[i].style.display = 'none';
+    }
+    var icons = document.querySelectorAll("#element-table button");
+    for (var i = 0; i < icons.length; i++) {
+      icons[i].style.backgroundColor = "";
+    }
+    var x = document.querySelectorAll("svg > circle, g > circle");
+
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = 'block';
+      x[i].style.fill = "";
+    }
+
+    var legs = document.querySelectorAll("."+currentMolecule+"-leg");
+    for (i = 0; i < legs.length; i++) {
+      legs[i].style.display = 'block';
     }
 
   }
