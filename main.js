@@ -339,3 +339,23 @@ function isEquivalent(a, b) {
   return true;
   
 }
+
+
+// When the user scrolls down 50px from the top of the document, resize the header's size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("headTitle").style.fontSize = "18px";
+    document.getElementById("headTitle").innerHTML = molecules[rand];
+    document.getElementsByClassName("header")[0].style.padding = "0";
+    document.getElementsByClassName("header")[0].style.opacity = "0.9";
+    document.getElementsByClassName("header")[0].style.height = "50px"; 
+  } 
+  else {
+    document.getElementById("headTitle").style.fontSize = "28px";
+    document.getElementById("headTitle").innerHTML = "Molecular Geometry";
+    document.getElementsByClassName("header")[0].style.padding = "10px 16px";
+    document.getElementsByClassName("header")[0].style.opacity = "1"; 
+  }
+}
