@@ -1,12 +1,10 @@
-var data = '[{ "molecule":"CO2", "C":1, "O":2, "ePairs":0 },{ "molecule":"SF6", "S":1, "F":6, "ePairs":0 }, { "molecule":"CH4", "C":1, "H":4, "ePairs":0 }, { "molecule":"BH3", "structure":"tri-planar", "B":1, "H":3, "ePairs":0, "center-atom":"B"}, { "molecule":"PF5", "P":1, "F":5, "ePairs":0 }]';
+var data = '[{ "molecule":"CO2", "structure":"linear", "C":1, "O":2, "ePairs":0, "center-atom":"C"},{ "molecule":"SF6", "structure":"octahedral", "S":1, "F":6, "ePairs":0, "center-atom":"S"}, { "molecule":"CH4", "structure":"tetrahedral", "C":1, "H":4, "ePairs":0, "center-atom":"C"}, { "molecule":"BH3", "structure":"tri-planar", "B":1, "H":3, "ePairs":0, "center-atom":"B"}, { "molecule":"PF5", "structure":"tri-bi", "P":1, "F":5, "ePairs":0, "center-atom":"P", single-bonds="5", double-bonds="0", triple-bonds="0"}]';
 var res = {};
 var selected;
 var moleculeVars = ["CO2","BH3","CH4","PF5","SF6"];
 var molecules = ["CO<sub>2</sub>","BH<sub>3</sub>","CH<sub>4</sub>","PF<sub>5</sub>","SF<sub>6</sub>"];
-var structures = ["linear","tri_planar-test","tetrahedral-test","trigonalbi-test","octahedral-test"];
 var rand = Math.floor(Math.random() * molecules.length);
 var mol = moleculeVars[rand];
-var selectedCorr = structures[rand];
 document.getElementById("variationMol").innerHTML = molecules[rand];
 var m = JSON.parse(data);
 var n;
@@ -198,9 +196,45 @@ jQuery("#element-table button").click(function(){
          
     }
 
+    res["single-bonds"]=0;
+    res["double-bonds"]=0;
+    res["triple-bonds"]=0;
+
+    var legs = document.querySelectorAll("."+currentMolecule + "-leg");
+    for(var k = 0; k < legs.length; k++){
+      var ch = legs[k].children;
+      var num = 0;
+      for(var m = 0; m < ch.length; m++){
+        var i = ch[m].id;
+        if (i.includes("line") && i.includes("Zone")==false) {
+          var s = ch[m].getAttribute("style");
+          if (s !== null && s.includes("block")) {
+            num+=1;
+          }
+        }
+      }
+      if (num==2) {
+        res["double-bonds"]+=1;
+      }
+      if (num==3) {
+        res["triple-bonds"]+=1;
+      }
+      else {
+        res["single-bonds"]+=1;
+      }
+    }
+
+
+    res["molecule"]=mol;
+
     console.log(n);
     console.log(res);
-    console.log(isEquivalent(n,res));
+    if (isEquivalent(n,res)) {
+      fb.innerHTML = "Correct!";
+    }
+    else {
+      fb.innerHTML = "Incorrect";
+    }
   
   }
 
