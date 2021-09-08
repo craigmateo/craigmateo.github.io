@@ -14,7 +14,7 @@
 <div class="content">
 
 <p style="margin-top: 7rem;">Draw the structure for <b><span id="variationMol">PF<sub>5</sub></span></b>. Start by selecting from the electron pair geometry menu.</p>
-<h3>Step 1 - Select geometry</h3>
+<h3>Step 1 - Select electron pair geometry</h3>
 
 <label for="geometry">Select geometry:</label>
   <select class="select-css" name="geometry" id="geometry" onchange="displayMolecule(value);">
@@ -42,6 +42,8 @@
     <button id="Br">Br</button>
     <button id="I">I</button>
 	<button id="Xe">Xe</button>
+	<button id="Be">Be</button>
+	<button id="OH">OH</button>
     <button id="pair">··</button>
 
 </div>
@@ -351,10 +353,9 @@
     			<line id="line22" class="st2" x1="454.4" y1="386.9" x2="393.2" y2="351.5"/>
     			<line id="line23" class="st2" x1="451" y1="392.7" x2="389.9" y2="357.4"/>
     			<g>
-
     				<circle id="circle2" class="st4" cx="515.5" cy="422.2" r="54.5"/>
     			</g>
-    			<polygon id="lineZone4" class="st3" points="459,379 450.2,394.3 389,359 398.1,343.2 		"/>
+    			<polygon id="lineZone2" class="st3" points="459,379 450.2,394.3 389,359 398.1,343.2 		"/>
     		</g>
 
     		<g id="leg3" class="tri-planar-leg">
@@ -479,6 +480,22 @@
   </div>
 
 </div>
+
+<h3 style="margin-top:1rem">Step 3 - Select molecular geometry</h3>
+
+<label for="mol-geometry">Select geometry:</label>
+  <select class="select-css" name="mol-geometry" id="mol-geometry">
+    <option value="tri-bi">Trigonal Bipyramidal</option>
+	<option value="tri-planar">Triagonal Planar</option>
+	<option value="linear">Linear</option>
+	<option value="tetrahedral">Tetrahedral</option>
+    <option value="octahedral">Octahedral</option>
+	<option value="square-planar">Square Planar</option>
+	<option value="square-pyramidal">Square Pyramidal</option>
+	<option value="see-saw">See-Saw</option>
+	<option value="t-shaped">T-shaped</option>
+  </select>
+
 <div id="fb">
 	<p id="feedback">&nbsp;</p>
 	</div>
