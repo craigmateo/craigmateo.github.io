@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - FabricJS editor</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css'>
+<link rel='stylesheet' href='https://rawgit.com/ONE-LOGIC/md-color-menu/master/md-color-menu.css'>
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<div class="container">
+
+  <div class="button-container">
+    
+    <button id="button-draw" onclick='startDraw()'><i class="fa-solid fa-pencil"></i>  Draw</button>
+    <button id="button-clear" onclick='clearCanvas()'><i class="fa-solid fa-eraser"></i>  Clear</button>
+    <button id="button-select" onclick='select()'><i class="fa-solid fa-arrows-up-down-left-right"></i>  Select</button>
+    <button id="button-save" onclick='saveCanvas()'><i class="fa-solid fa-floppy-disk"></i>  Save</button>
+    <button id="button-hex" onclick='addHex()'><i class="fa-solid fa-hexagon"></i>  Hexagon</button>
+    <button id="button-line" onclick='addLine()'><i class="fa-solid fa-horizontal-rule"></i>  Line</button>
+
+
+    <label for="filereader" class="file-upload">
+      <i class="fa-solid fa-upload"></i> Upload
+    </label>
+    <input id="filereader" type="file" accept="image/*"/>
+
+  </div>
+
+    <canvas id="a" width="600px" height="500"></canvas>
+
+</div>
+
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.6.7/fabric.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script  src="./script.js"></script>
+</body>
+</html>
