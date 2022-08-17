@@ -1,42 +1,104 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - FabricJS editor</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css'>
-<link rel='stylesheet' href='https://rawgit.com/ONE-LOGIC/md-color-menu/master/md-color-menu.css'>
-<link rel="stylesheet" href="./style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/mathquill@0.10.1-a/build/mathquill.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathquill@0.10.1-a/build/mathquill.min.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
+    <h2>Math Drawing</h2>
+    <div class="container">
 
-<div class="container">
+        <div class="button-container" id="button-container">
+          <table>
+            <tbody>
+            <tr>
+            <td><button id="button-draw" class="button" onclick='startDraw()' title="Draw"><img src="assets/svg/draw.svg" /> </button></td>
+            <td><button id="button-clear" class="button" onclick='clearCanvas()' title="Delete All"><img src="assets/svg/trash.svg" /></button></td>
+            <td><button id="fraction" class="button" title="Fraction"><img src="assets/svg/fraction.svg" /></button></td>
+            <td><button id="sigma" class="button" title="Sigma"><img src="assets/svg/sigma.svg" /></button></td>
+            <td><button id="sigma" class="button" title="Integral"><img src="assets/svg/integral.svg" /></button></td>
+           <td><input id="filereader" type="file" accept="image/*" />
+              <label for="filereader" class="custom-file-upload" title="Upload Image">
+                  <img src="assets/svg/image.svg" />
+              </label></td>  
+          </tr>
+            </tbody>
+            </table>
+            
+            <!--
+            <button id="button-select" class="button" onclick='select()' title="Select"><img src="assets/svg/select.svg" /> </button>
+            <button id="button-pent" class="button" onclick='addPent()' title="Pentagon"><img src="assets/svg/pentagon.svg" /></button>
+            <button id="button-tri" class="button" onclick='addTriangle()' title="Triangle"><img src="assets/svg/triangle.svg" /></button>
+            <button id="button-rec" class="button" onclick='addRect()' title="Rectangle"><img src="assets/svg/rectangle.svg" /></button>
+            <button id="button-line" class="button" onclick='addSingle()' title="Single Bond"><img src="assets/svg/single-bond.svg" /></button>
+            <button id="button-line" class="button" onclick='addDouble()' title="Double Bond"><img src="assets/svg/double-bond.svg" /></button>
+            <button id="button-line" class="button" onclick='addTriple()' title="Triple Bond"><img src="assets/svg/triple-bond.svg" /></button>
+            <button id="button-line" class="button" onclick='addWedge()' title="Wedge"><img src="assets/svg/wedge.svg" /></button>
+            <button id="button-line" class="button" onclick='addWedgeDash()' title="Wedge Dash"><img src="assets/svg/wedge-dash.svg" /></button>
+            <button id="button-line" class="button" onclick='addText()' title="Text"><img src="assets/svg/text.svg" /></button>
+            <button id="button-subscript" class="button" onclick="subScript()" title="Subscript"><img src="assets/svg/text-sub.svg" /></button>
+            <button id="button-superscript" class="button" onclick="superScript()" title="Superscript"><img src="assets/svg/text-sup.svg" /></button>
+            <button id="button-line" class="button" onclick='addArrow()' title="Arrow"><img src="assets/svg/arrow.svg" /></button>
+-->
+            <!-- button-save for testing: output to console.log -->
+            
 
-  <div class="button-container">
+            
+        </div>
+
+        <div class="dragdiv" id="dragdiv1">
+            <div class="dragdivheader" id="dragdivheader1">
+              <div class="math-field" id="math-field1"></div>
+            </div>
+          </div>
+        </div>
+
+        <canvas id="a" width="640px" height="500"></canvas>
+
+    </div>
+    <div id="testing">
+        <b>For testing:</b>
+        <p>LaTeX field1: <span id="latex1"></span></p>
+      </div>
+      <script>
+        var mathFieldSpan1 = document.getElementById('math-field1')
+        var latexSpan = document.getElementById('latex1')
+  
+        var MQ = MathQuill.getInterface(2) // for backcompat
+        var mathField1 = MQ.MathField(mathFieldSpan1, {
+          spaceBehavesLikeTab: true, // configurable
+          handlers: {
+            edit: function () {
+              // useful event handlers
+              latexSpan.textContent = mathField1.latex() // simple API
+            }
+          }
+        })
+      </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathquill@0.10.1-a/build/mathquill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.3.3/fabric.min.js" async defer></script>
+    <script src="js/main.js" async defer></script>
+    <script src="js/events.js" async defer></script>
+    <script src="js/field.js" async defer></script>
+    <script src="js/drag.js" async defer></script>
     
-    <button id="button-draw" onclick='startDraw()'><i class="fa-solid fa-pencil"></i>  Draw</button>
-    <button id="button-clear" onclick='clearCanvas()'><i class="fa-solid fa-eraser"></i>  Clear</button>
-    <button id="button-select" onclick='select()'><i class="fa-solid fa-arrows-up-down-left-right"></i>  Select</button>
-    <button id="button-save" onclick='saveCanvas()'><i class="fa-solid fa-floppy-disk"></i>  Save</button>
-    <button id="button-hex" onclick='addHex()'><i class="fa-solid fa-hexagon"></i>  Hexagon</button>
-    <button id="button-line" onclick='addLine()'><i class="fa-solid fa-horizontal-rule"></i>  Line</button>
 
-
-    <label for="filereader" class="file-upload">
-      <i class="fa-solid fa-upload"></i> Upload
-    </label>
-    <input id="filereader" type="file" accept="image/*"/>
-
-  </div>
-
-    <canvas id="a" width="600px" height="500"></canvas>
-
-</div>
-
-<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.6.7/fabric.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<script  src="./script.js"></script>
 </body>
+
 </html>
